@@ -5,5 +5,8 @@
   "repository": "https://github.com/CaptainJRoy/StructAlgo.git",
   "devDependencies": {
     "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

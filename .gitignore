@@ -1,3 +1,9 @@
+# Build files
+*.js
+
+# IDE
+.idea
+
 # Logs
 logs
 *.log
