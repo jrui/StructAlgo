@@ -3,6 +3,7 @@ export declare class TreeSet<T> {
     private length;
     private elements;
     constructor(comparator: (a: T, b: T) => number);
+    setElements(elements: T[]): void;
     size(): number;
     last(): any;
     first(): any;

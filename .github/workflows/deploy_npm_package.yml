@@ -30,6 +30,7 @@ jobs:
                 node-version: 20
                 registry-url: https://npm.pkg.github.com/
             - run: npm install
+            - run: npm run build
             - run: |
                 # Change publish registry
                 echo "$(jq '.publishConfig.registry = "https://npm.pkg.github.com"' package.json)" > package.json
@@ -50,6 +51,7 @@ jobs:
                 node-version: 20
                 registry-url: https://registry.npmjs.org/
             - run: npm install
+            - run: npm run build
             - run: npm publish --access public
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.NPMJS_DEPLOY_SECRET }}
