@@ -10,6 +10,10 @@ export class TreeSet<T> {
         this.length = 0;
     }
 
+    setElements(elements: T[]) {
+        this.elements = elements;
+        this.length = elements.length;
+    }
 
     size() {
         return this.elements.length;
