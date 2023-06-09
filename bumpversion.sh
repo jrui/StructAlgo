@@ -30,7 +30,6 @@ if [ -d ".git" ]; then
 		git commit -m "[BUMP_VERSION] - Bump to ${version}"
 		git tag -a "${output}" -m "${version}"
 		git push origin --tags
-		npm publish ./
 	else
 		echo "Please commit staged files prior to bumping"
 	fi
