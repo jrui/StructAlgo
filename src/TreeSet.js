@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TreeSet = void 0;
 class TreeSet {
     constructor(comparator) {
         this.comparator = comparator;
@@ -73,4 +74,4 @@ class TreeSet {
         return -(low + 1);
     }
 }
-exports.default = TreeSet;
+exports.TreeSet = TreeSet;

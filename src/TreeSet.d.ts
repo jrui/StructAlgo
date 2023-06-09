@@ -1,4 +1,4 @@
-export default class TreeSet<T> {
+export declare class TreeSet<T> {
     private comparator;
     private length;
     private elements;

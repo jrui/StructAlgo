@@ -1,5 +1,1 @@
-import TreeSet from './TreeSet';
-
-export {
-    TreeSet
-}
+export { TreeSet } from './TreeSet';

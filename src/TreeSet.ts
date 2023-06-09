@@ -1,4 +1,4 @@
-export default class TreeSet<T> {
+export class TreeSet<T> {
     private comparator: (a: any, b: any) => number;
     private length: number;
     private elements: any[];
