@@ -2,21 +2,54 @@
 name: Publish NPM Package
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 
-      
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: actions/setup-node@v3
+            with:
+              node-version: 20
+          - run: npm ci
+    
+    publish-gpr:
+        needs: build
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 20
+                registry-url: https://npm.pkg.github.com/
+            - run: npm install
+            - run: |
+                # Change publish registry
+                echo "$(jq '.publishConfig.registry = "https://npm.pkg.github.com"' package.json)" > package.json
+                # Add organisation scope to package name
+                echo "$(jq '.name = "@CaptainJRoy/structalgo"' package.json)" > package.json
+                # And publish this boy
+                npm publish --@CaptainJRoy:registry=https://npm.pkg.github.com
+              env:
+                NODE_AUTH_TOKEN: ${{ secrets.GHP_DEPLOY_SECRET }}
+
+    publish-npm:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 20
+                registry-url: https://registry.npmjs.org/
+            - run: npm install
+            - run: npm publish --access public
+              env:
+                NODE_AUTH_TOKEN: ${{ secrets.NPMJS_DEPLOY_SECRET }}

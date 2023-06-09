@@ -1,5 +1,5 @@
 export default class TreeSet<T> {
-    private comparator: (a: T, b: T) => number;
+    private comparator: (a: any, b: any) => number;
     private length: number;
     private elements: any[];
 
