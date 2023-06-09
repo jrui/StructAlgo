@@ -10,10 +10,12 @@ export class TreeSet<T> {
         this.length = 0;
     }
 
+
     setElements(elements: T[]) {
         this.elements = elements;
         this.length = elements.length;
     }
+
 
     size() {
         return this.elements.length;
@@ -38,7 +40,7 @@ export class TreeSet<T> {
     }
 
 
-    pollLast() {
+    pullLast() {
         if (this.length > 0) {
             this.length--;
             return this.elements.splice(this.length, 1);
@@ -47,7 +49,7 @@ export class TreeSet<T> {
     }
 
 
-    pollFirst() {
+    pullFirst() {
         if (this.length > 0) {
             this.length--;
             return this.elements.splice(0, 1);
