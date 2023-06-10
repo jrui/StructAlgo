@@ -1,3 +1,12 @@
+/**
+ * TreeSet is a set of elements ordered by a comparator function.
+ * It is implemented as a sorted array.
+ *
+ * @example
+ * const treeSet = new TreeSet<number>((a, b) => a - b);
+ * treeSet.setElements([1, 2, 3]);
+ * treeSet.size(); // 3
+ */
 export class TreeSet<T> {
     private comparator: (a: any, b: any) => number;
     private length: number;
