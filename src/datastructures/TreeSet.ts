@@ -8,7 +8,7 @@
  * treeSet.size(); // 3
  */
 export class TreeSet<T> {
-    private comparator: (a: any, b: any) => number;
+    private readonly comparator: (a: any, b: any) => number;
     private length: number;
     private elements: any[];
 
