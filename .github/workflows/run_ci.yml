@@ -3,6 +3,9 @@ name: CI Workflow
 
 on:
   push:
+    branches-ignore:
+      - master
+  workflow_dispatch:
 
 
 jobs:
