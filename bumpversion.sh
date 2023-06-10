@@ -6,8 +6,9 @@ function bump {
 	search='("version":[[:space:]]*").+(")'
 	replace="\1${version}\2"
 	
-	sed -i ".tmp" -E "s/${search}/${replace}/g" "$1"
-	rm "$1.tmp"
+	sed -E "s/${search}/${replace}/g" "$1" >> new_package.json
+	rm "$1"
+	mv new_package.json "$1"
 }
 
 function help {
@@ -25,7 +26,7 @@ if [ -d ".git" ]; then
 	changes=$(git status --porcelain)
 	
 	if [ -z "${changes}" ]; then
-		bump
+		bump package.json
 		git add .
 		git commit -m "[BUMP_VERSION] - Bump to ${version}"
 		git tag -a "${output}" -m "${version}"
