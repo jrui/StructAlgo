@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "tsc src/*.ts",
-    "test": "npm run build && jest"
+    "test": "npm run build && jest",
+    "docs": "npx typedoc src/** --out docs/"
   }
 }
