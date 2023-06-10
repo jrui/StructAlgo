@@ -36,7 +36,8 @@ jobs:
           masterVersion=$(npm version --no-git-tag-version | grep structalgo | sed -E "s/structalgo: '//g" | sed -E "s/'(,)?//g")
           
           # Get back to push branch
-          git checkout ${{ github.ref }}
+          branchName=$(sed -E "s/refs\/heads\///g"  <<< "${{ github.ref }}")
+          git checkout $branchName
           npm ci
           
           # Check version here
@@ -44,7 +45,7 @@ jobs:
           
           if [ "$masterVersion" == "$branchVersion" ]; then
             echo "Bumping project patch version"
-            ./bumpversion.sh
+            ./bumpversion.sh patch
             git push
           else
             echo "Versions are different, no need to bump"
