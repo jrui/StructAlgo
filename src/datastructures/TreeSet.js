@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TreeSet = void 0;
+/**
+ * TreeSet is a set of elements ordered by a comparator function.
+ * It is implemented as a sorted array.
+ *
+ * @example
+ * const treeSet = new TreeSet<number>((a, b) => a - b);
+ * treeSet.setElements([1, 2, 3]);
+ * treeSet.size(); // 3
+ */
 var TreeSet = /** @class */ (function () {
     function TreeSet(comparator) {
         this.comparator = comparator;
