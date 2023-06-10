@@ -45,6 +45,8 @@ jobs:
           
           if [ "$masterVersion" == "$branchVersion" ]; then
             echo "Bumping project patch version"
+            git config --global user.email "bumpversion@bot.com"
+            git config --global user.name "Bump Version Bot"
             ./bumpversion.sh patch
             git push
           else
