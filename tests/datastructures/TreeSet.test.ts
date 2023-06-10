@@ -1,11 +1,13 @@
-import { TreeSet } from '../src/TreeSet';
-import { describe, expect, test, beforeEach } from '@jest/globals';
+import { TreeSet } from '../../src/datastructures/TreeSet';
+import { describe, expect, test } from '@jest/globals';
+
 
 describe('TreeSet', () => {
     test('constructor with comparator', () => {
         const treeSet = new TreeSet<number>((a, b) => a - b);
         expect(treeSet).toBeDefined();
     });
+
 
     const treeSet = new TreeSet<number>((a, b) => a.toString().localeCompare(b.toString()));
 
