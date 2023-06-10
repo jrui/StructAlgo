@@ -1,0 +1,84 @@
+# Create an action that runs CI and checks project version bump
+name: CI Workflow
+
+on:
+  push:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+  check-version:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+      - run: |
+          # Go to master branch
+          git pull
+          git checkout master
+          npm ci
+          
+          # Check version there
+          masterVersion=$(npm version --no-git-tag-version | grep structalgo | sed -E "s/structalgo: '//g" | sed -E "s/'(,)?//g")
+          
+          # Get back to push branch
+          git checkout ${{ github.ref }}
+          npm ci
+          
+          # Check version here
+          branchVersion=$(npm version --no-git-tag-version | grep structalgo | sed -E "s/structalgo: '//g" | sed -E "s/'(,)?//g")
+          
+          if [ "$masterVersion" == "$branchVersion" ]; then
+            echo "Bumping project patch version"
+            ./bumpversion.sh
+            git push
+          else
+            echo "Versions are different, no need to bump"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  check-build-files:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: |
+          changes=$(git status --porcelain)
+  
+          if [ -z "${changes}" ]; then
+            echo "No changes to commit"
+          else
+            git config --global user.email "bumpversion@bot.com"
+            git config --global user.name "Bump Version Bot"
+            git add .
+            git commit -m "dev_bot - Add build files"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  run-ci:
+    needs: [check-version, check-build-files]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run test
