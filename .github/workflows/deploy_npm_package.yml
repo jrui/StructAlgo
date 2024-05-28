@@ -32,11 +32,12 @@ jobs:
                 git config --global user.email "jrsm-github@outlook.pt"
                 git pull
                 git checkout docs --
+                git reset --hard master
                 npm ci
                 npx typedoc src/** --out docs/
                 git add docs/
                 git commit -m "[DOCS_BOT] - Update docs"
-                git push
+                git push --force
     
     publish-gpr:
         needs: build
