@@ -33,7 +33,7 @@ jobs:
                 git config --global user.name "jrui"
                 git config --global user.email "jrsm-github@outlook.pt"
                 git pull
-                git checkout docs
+                git checkout docs --
                 npm ci
                 npx typedoc src/** --out docs/
                 git add docs/
