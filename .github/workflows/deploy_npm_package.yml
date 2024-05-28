@@ -27,8 +27,6 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                 node-version: 20
-            - run: npm ci
-            - run: npx typedoc src/** --out docs/
             - run: |
                 git config --global user.name "jrui"
                 git config --global user.email "jrsm-github@outlook.pt"
