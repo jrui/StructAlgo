@@ -90,7 +90,11 @@ export class HashSet<T> {
 
 
     getKeys(): string[] {
-        return [... this.keys.keys()];
+        let _keys: string[] = [];    
+        this.keys.forEach((value: number, key: string) => {
+            _keys.push(key);
+        });
+        return _keys;
     }
 
 
