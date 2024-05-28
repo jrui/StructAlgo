@@ -30,7 +30,7 @@ jobs:
             - run: npm ci
             - run: npx typedoc src/** --out docs/
             - run: |
-                git config --global user.name "CaptainJRoy"
+                git config --global user.name "jrui"
                 git config --global user.email "jrsm-github@outlook.pt"
                 git pull
                 git checkout docs
@@ -58,9 +58,9 @@ jobs:
                 # Change publish registry
                 echo "$(jq '.publishConfig.registry = "https://npm.pkg.github.com"' package.json)" > package.json
                 # Add organisation scope to package name
-                echo "$(jq '.name = "@CaptainJRoy/structalgo"' package.json)" > package.json
+                echo "$(jq '.name = "@jrui/structalgo"' package.json)" > package.json
                 # And publish this boy
-                npm publish --@CaptainJRoy:registry=https://npm.pkg.github.com
+                npm publish --@jrui:registry=https://npm.pkg.github.com
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GHP_DEPLOY_SECRET }}
 

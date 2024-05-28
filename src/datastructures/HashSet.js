@@ -84,7 +84,11 @@ var HashSet = /** @class */ (function () {
         this.buckets[this.hash(key)] = __spreadArray([], this.buckets[this.hash(key)].filter(function (pair) { return pair.key != key; }), true);
     };
     HashSet.prototype.getKeys = function () {
-        return __spreadArray([], this.keys.keys(), true);
+        var _keys = [];
+        this.keys.forEach(function (value, key) {
+            _keys.push(key);
+        });
+        return _keys;
     };
     HashSet.prototype.getValues = function () {
         return this.buckets.reduce(function (values, bucket) {
