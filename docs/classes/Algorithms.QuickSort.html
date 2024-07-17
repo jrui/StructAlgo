@@ -29,10 +29,10 @@ algorithm depends on the choice of these steps.</p>
 and the best-case time complexity is O(n log n).</p>
 </div>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">quickSort</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">QuickSort</span><span class="hl-1">([</span><span class="hl-4">3</span><span class="hl-1">, </span><span class="hl-4">4</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]);</span><br/><span class="hl-5">quickSort</span><span class="hl-1">.</span><span class="hl-3">sort</span><span class="hl-1">(); </span><span class="hl-6">// returns new array with [1, 3, 4]</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">quickSort</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">QuickSort</span><span class="hl-1">([</span><span class="hl-4">3</span><span class="hl-1">, </span><span class="hl-4">4</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]);</span><br/><span class="hl-5">quickSort</span><span class="hl-1">.</span><span class="hl-3">sort</span><span class="hl-1">(); </span><span class="hl-6">// returns new array with [1, 3, 4]</span><br/><span class="hl-6">// or</span><br/><span class="hl-5">QuickSort</span><span class="hl-1">.</span><span class="hl-3">sort</span><span class="hl-1">([</span><span class="hl-4">3</span><span class="hl-1">, </span><span class="hl-4">4</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]); </span><span class="hl-6">// returns new array with [1, 3, 4]</span>
 </code><button>Copy</button></pre>
 
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">QuickSort</span><span class="hl-1">.</span><span class="hl-3">sort</span><span class="hl-1">([</span><span class="hl-4">3</span><span class="hl-1">, </span><span class="hl-4">4</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]); </span><span class="hl-6">// returns new array with [1, 3, 4]</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">quickSort</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">QuickSort</span><span class="hl-1">(</span><br/><span class="hl-1"> [</span><span class="hl-7">&#39;alice&#39;</span><span class="hl-1">, </span><span class="hl-7">&#39;bob&#39;</span><span class="hl-1">, </span><span class="hl-7">&#39;charlie&#39;</span><span class="hl-1">, </span><span class="hl-7">&#39;alex&#39;</span><span class="hl-1">, </span><span class="hl-7">&#39;gavin&#39;</span><span class="hl-1">],</span><br/><span class="hl-1"> (</span><span class="hl-5">a</span><span class="hl-1"> : </span><span class="hl-8">string</span><span class="hl-1">, </span><span class="hl-5">b</span><span class="hl-1"> : </span><span class="hl-8">string</span><span class="hl-1">) </span><span class="hl-0">=&gt;</span><span class="hl-1"> </span><span class="hl-5">a</span><span class="hl-1">.</span><span class="hl-3">localeCompare</span><span class="hl-1">(</span><span class="hl-5">b</span><span class="hl-1">)</span><br/><span class="hl-1">);</span><br/><span class="hl-5">quickSort</span><span class="hl-1">.</span><span class="hl-3">sort</span><span class="hl-1">(); </span><span class="hl-6">// returns new array with [&#39;alex&#39;, &#39;alice&#39;, &#39;bob&#39;, &#39;charlie&#39;, &#39;gavin&#39;]</span>
 </code><button>Copy</button></pre>
 </div></section>
 <section class="tsd-panel tsd-hierarchy">
@@ -40,7 +40,7 @@ and the best-case time complexity is O(n log n).</p>
 <ul class="tsd-hierarchy">
 <li><span class="target">QuickSort</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L21">algorithms/QuickSort.ts:21</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L27">algorithms/QuickSort.ts:27</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -52,12 +52,14 @@ and the best-case time complexity is O(n log n).</p>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="Algorithms.QuickSort.html#size" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>size</span></a>
+<div class="tsd-index-list"><a href="Algorithms.QuickSort.html#defaultComparator" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>default<wbr/>Comparator</span></a>
+<a href="Algorithms.QuickSort.html#size" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>size</span></a>
 <a href="Algorithms.QuickSort.html#values" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>values</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
 <div class="tsd-index-list"><a href="Algorithms.QuickSort.html#sort" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-2048"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)"></path></g></svg><span>sort</span></a>
+<a href="Algorithms.QuickSort.html#defaultComparator-1" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>default<wbr/>Comparator</span></a>
 <a href="Algorithms.QuickSort.html#sort-2" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sort</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
@@ -65,28 +67,73 @@ and the best-case time complexity is O(n log n).</p>
 <section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_QuickSort"><span class="tsd-kind-constructor-signature">new <wbr/>Quick<wbr/>Sort</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">array</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algorithms.QuickSort.html" class="tsd-signature-type tsd-kind-class">QuickSort</a><a href="#constructor.new_QuickSort" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_QuickSort"><span class="tsd-kind-constructor-signature">new <wbr/>Quick<wbr/>Sort</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">array</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">comparatorFn</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algorithms.QuickSort.html" class="tsd-signature-type tsd-kind-class">QuickSort</a><a href="#constructor.new_QuickSort" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">array</span>: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5></li></ul></div>
+<h5><span class="tsd-kind-parameter">array</span>: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5></li>
+<li>
+<h5><span class="tsd-kind-parameter">comparatorFn</span>: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> = QuickSort.defaultComparator</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Default comparator function used for sorting</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">a</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>first element to compare</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">b</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>second element to compare</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>a negative number if a &lt; b, 0 if a = b, a positive number if a &gt; b</p>
+
+<div class="tsd-comment tsd-typography"></div></li></ul></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Algorithms.QuickSort.html" class="tsd-signature-type tsd-kind-class">QuickSort</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L26">algorithms/QuickSort.ts:26</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L33">algorithms/QuickSort.ts:33</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="defaultComparator" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>default<wbr/>Comparator</span><a href="#defaultComparator" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">default<wbr/>Comparator</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures">
+<li class="tsd-signature" id="defaultComparator.__type.__type-1"><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">a</span>: <span class="tsd-signature-type">any</span></h5></li>
+<li>
+<h5><span class="tsd-kind-parameter">b</span>: <span class="tsd-signature-type">any</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L30">algorithms/QuickSort.ts:30</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="size" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>size</span><a href="#size" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">size</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L23">algorithms/QuickSort.ts:23</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L29">algorithms/QuickSort.ts:29</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="values" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>values</span><a href="#values" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">values</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L22">algorithms/QuickSort.ts:22</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L28">algorithms/QuickSort.ts:28</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="sort" class="tsd-anchor"></a>
@@ -103,11 +150,36 @@ and the best-case time complexity is O(n log n).</p>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L69">algorithms/QuickSort.ts:69</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L96">algorithms/QuickSort.ts:96</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="defaultComparator-1" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>default<wbr/>Comparator</span><a href="#defaultComparator-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="defaultComparator-1.defaultComparator-2"><span class="tsd-kind-call-signature">default<wbr/>Comparator</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#defaultComparator-1.defaultComparator-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Default comparator function used for sorting</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">a</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>first element to compare</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">b</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>second element to compare</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>a negative number if a &lt; b, 0 if a = b, a positive number if a &gt; b</p>
+
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L76">algorithms/QuickSort.ts:76</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="sort-2" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>sort</span><a href="#sort-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="sort-2.sort-3"><span class="tsd-kind-call-signature">sort</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">array</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><a href="#sort-2.sort-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="sort-2.sort-3"><span class="tsd-kind-call-signature">sort</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">array</span>, <span class="tsd-kind-parameter">comparatorFn</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><a href="#sort-2.sort-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Sorts the array using the QuickSort algorithm.
 Static method, no need to instantiate class</p>
@@ -119,12 +191,40 @@ Static method, no need to instantiate class</p>
 <h5><span class="tsd-kind-parameter">array</span>: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 <div class="tsd-comment tsd-typography"><p>the array to be sorted</p>
 </div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">comparatorFn</span>: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> = ...</span></h5>
+<div class="tsd-comment tsd-typography"><p>the comparator function used for sorting, defaults to numerical comparison</p>
+</div>
+<div class="tsd-comment tsd-typography"></div>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">a</span>, <span class="tsd-kind-parameter">b</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Default comparator function used for sorting</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">a</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>first element to compare</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">b</span>: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>second element to compare</p>
+</div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>a negative number if a &lt; b, 0 if a = b, a positive number if a &gt; b</p>
+
+<div class="tsd-comment tsd-typography"></div></li></ul></li></ul></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4><p>a new array with the elements sorted</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/d122a3f/src/algorithms/QuickSort.ts#L39">algorithms/QuickSort.ts:39</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/CaptainJRoy/StructAlgo/blob/e66da7f/src/algorithms/QuickSort.ts#L48">algorithms/QuickSort.ts:48</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -145,9 +245,11 @@ Static method, no need to instantiate class</p>
 <div class="tsd-accordion-details">
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
+<li><a href="#defaultComparator" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>default<wbr/>Comparator</span></a></li>
 <li><a href="#size" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>size</span></a></li>
 <li><a href="#values" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>values</span></a></li>
 <li><a href="#sort" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sort</span></a></li>
+<li><a href="#defaultComparator-1" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>default<wbr/>Comparator</span></a></li>
 <li><a href="#sort-2" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>sort</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>structalgo</span></a>

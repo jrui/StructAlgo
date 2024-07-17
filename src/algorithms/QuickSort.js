@@ -26,24 +26,34 @@ exports.QuickSort = void 0;
  * @example
  * const quickSort = new QuickSort([3, 4, 1]);
  * quickSort.sort(); // returns new array with [1, 3, 4]
+ * // or
+ * QuickSort.sort([3, 4, 1]); // returns new array with [1, 3, 4]
  *
  * @example
- * QuickSort.sort([3, 4, 1]); // returns new array with [1, 3, 4]
+ * const quickSort = new QuickSort(
+ *  ['alice', 'bob', 'charlie', 'alex', 'gavin'],
+ *  (a : string, b : string) => a.localeCompare(b)
+ * );
+ * quickSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
 var QuickSort = /** @class */ (function () {
-    function QuickSort(array) {
+    function QuickSort(array, comparatorFn) {
         if (array === void 0) { array = []; }
+        if (comparatorFn === void 0) { comparatorFn = QuickSort.defaultComparator; }
         this.values = __spreadArray([], array, true);
         this.size = array.length;
+        this.defaultComparator = comparatorFn;
     }
     /**
      * Sorts the array using the QuickSort algorithm.
      * Static method, no need to instantiate class
      *
      * @param array - the array to be sorted
+     * @param comparatorFn - the comparator function used for sorting, defaults to numerical comparison
      * @returns a new array with the elements sorted
      */
-    QuickSort.sort = function (array) {
+    QuickSort.sort = function (array, comparatorFn) {
+        if (comparatorFn === void 0) { comparatorFn = this.defaultComparator; }
         if (array.length <= 1) {
             return array;
         }
@@ -51,7 +61,7 @@ var QuickSort = /** @class */ (function () {
         var leftArr = [];
         var rightArr = [];
         for (var i = 1; i < array.length; i++) {
-            if (array[i] < pivot) {
+            if (comparatorFn(array[i], pivot) < 0) {
                 leftArr.push(array[i]);
             }
             else {
@@ -59,6 +69,24 @@ var QuickSort = /** @class */ (function () {
             }
         }
         return __spreadArray(__spreadArray(__spreadArray([], QuickSort.sort(leftArr), true), [pivot], false), QuickSort.sort(rightArr), true);
+    };
+    /**
+     * Default comparator function used for sorting
+     *
+     * @param a - first element to compare
+     * @param b - second element to compare
+     * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
+     */
+    QuickSort.defaultComparator = function (a, b) {
+        if (a < b) {
+            return -1;
+        }
+        else if (a === b) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
     };
     /**
      * Sorts the array using the QuickSort algorithm.
@@ -77,7 +105,7 @@ var QuickSort = /** @class */ (function () {
         var leftArr = [];
         var rightArr = [];
         for (var i = 1; i < this.size; i++) {
-            if (this.values[i] < pivot) {
+            if (this.defaultComparator(this.values[i], pivot) < 0) {
                 leftArr.push(this.values[i]);
             }
             else {
