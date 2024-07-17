@@ -14,18 +14,26 @@
  * @example
  * const quickSort = new QuickSort([3, 4, 1]);
  * quickSort.sort(); // returns new array with [1, 3, 4]
+ * // or
+ * QuickSort.sort([3, 4, 1]); // returns new array with [1, 3, 4]
  *
  * @example
- * QuickSort.sort([3, 4, 1]); // returns new array with [1, 3, 4]
+ * const quickSort = new QuickSort(
+ *  ['alice', 'bob', 'charlie', 'alex', 'gavin'],
+ *  (a : string, b : string) => a.localeCompare(b)
+ * );
+ * quickSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
 export class QuickSort {
     private readonly values: any[];
     private readonly size: number;
+    private readonly defaultComparator: (a: any, b: any) => number;
 
 
-    constructor(array: any[] = []) {
+    constructor(array: any[] = [], comparatorFn = QuickSort.defaultComparator) {
         this.values = [...array];
         this.size = array.length;
+        this.defaultComparator = comparatorFn;
     }
 
 
@@ -34,9 +42,10 @@ export class QuickSort {
      * Static method, no need to instantiate class
      *
      * @param array - the array to be sorted
+     * @param comparatorFn - the comparator function used for sorting, defaults to numerical comparison
      * @returns a new array with the elements sorted
      */
-    static sort(array: any[]) : any[] {
+    static sort(array: any[], comparatorFn = this.defaultComparator ) : any[] {
         if (array.length <= 1) {
             return array;
         }
@@ -46,7 +55,7 @@ export class QuickSort {
         let rightArr : any[] = [];
 
         for (let i = 1; i < array.length; i++) {
-            if (array[i] < pivot) {
+            if (comparatorFn(array[i], pivot) < 0) {
                 leftArr.push(array[i]);
             } else {
                 rightArr.push(array[i]);
@@ -54,6 +63,24 @@ export class QuickSort {
         }
 
         return [...QuickSort.sort(leftArr), pivot, ...QuickSort.sort(rightArr)];
+    }
+
+
+    /**
+     * Default comparator function used for sorting
+     *
+     * @param a - first element to compare
+     * @param b - second element to compare
+     * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
+     */
+    static defaultComparator(a: any, b: any) : number {
+        if (a < b) {
+            return -1;
+        } else if (a === b) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
 
@@ -76,7 +103,7 @@ export class QuickSort {
         let rightArr : any[] = [];
 
         for (let i = 1; i < this.size; i++) {
-            if (this.values[i] < pivot) {
+            if (this.defaultComparator(this.values[i], pivot) < 0) {
                 leftArr.push(this.values[i]);
             } else {
                 rightArr.push(this.values[i]);
