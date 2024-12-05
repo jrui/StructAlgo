@@ -18,13 +18,13 @@ Feel free to add on to it, open PRs, and use it in your projects.
 ## Implementation Progress
 ### Data Structures
   - [x] Hash Set
+  - [x] Linked List
   - [x] Ring Buffer
   - [x] Stack
   - [x] Tree Set
   - [ ] AVL Tree
   - [ ] Graph
   - [ ] Heap
-  - [ ] Linked List
   - [ ] LRU Cache
   - [ ] Queue
   - [ ] Trie
