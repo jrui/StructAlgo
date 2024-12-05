@@ -71,9 +71,9 @@ export class TreeSet<T> {
         let index = this.binarySearch(element);
         if (index < 0) {
             index = -(index + 1);
+            this.elements.splice(index, 0, element);
+            this.length++;
         }
-        this.elements.splice(index, 0, element);
-        this.length++;
     }
 
 

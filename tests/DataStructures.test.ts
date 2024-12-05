@@ -19,4 +19,7 @@ describe('DataStructures', () => {
         expect(datastructures.TreeSet).toBeDefined();
     });
 
+    test('LinkedList should be defined', () => {
+        expect(datastructures.LinkedList).toBeDefined();
+    });
 });

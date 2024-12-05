@@ -58,9 +58,9 @@ var TreeSet = /** @class */ (function () {
         var index = this.binarySearch(element);
         if (index < 0) {
             index = -(index + 1);
+            this.elements.splice(index, 0, element);
+            this.length++;
         }
-        this.elements.splice(index, 0, element);
-        this.length++;
     };
     /**
      * Performs a binary search of value in array
