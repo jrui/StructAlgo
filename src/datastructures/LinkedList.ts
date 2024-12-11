@@ -43,7 +43,7 @@ export class LinkedList<T> {
     }
 
     /**
-     * Removes the last value from the LinkedList.
+     * Removes the last node from the LinkedList and returns its value.
      */
     pop(): T | null {
         if (this.tail == null) {
@@ -108,12 +108,12 @@ export class LinkedList<T> {
     }
 
     /**
-     * Returns the value at the given index.
+     * Returns the value of the node at the given index.
      * 
      * @param index - index to be searched
      * @returns T | null
      */
-    get(index: number): T | null {
+    getValue(index: number): T | null {
         if (index < 0 || index >= this.length) {
             return null;
         }
@@ -124,6 +124,25 @@ export class LinkedList<T> {
         }
 
         return currentNode!.value;
+    }
+
+    /**
+     * Returns the node at the given index.
+     * 
+     * @param index - index to be searched
+     * @returns LinkedListNode<T> | null
+     */
+    getNode(index: number): LinkedListNode<T> | null {
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+
+        let currentNode = this.head;
+        for (let i = 0; i < index; i++) {
+            currentNode = currentNode!.next;
+        }
+
+        return currentNode;
     }
 
     /**
@@ -245,11 +264,11 @@ export class LinkedList<T> {
         let currentNode = this.head;
         let str = '';
         while (currentNode != null) {
-            str += currentNode.value + ' ';
+            str += currentNode.value + ' -> ';
             currentNode = currentNode.next;
         }
 
-        return str;
+        return str.slice(0, -4);
     }
 }
 
@@ -259,7 +278,7 @@ export class LinkedList<T> {
  *  Constructor takes a value and initializes it.
  *  Next and previous pointers are set to null.
  */
-class LinkedListNode<T> {
+export class LinkedListNode<T> {
     value: T;
     next: LinkedListNode<T> | null = null;
     prev: LinkedListNode<T> | null = null;
