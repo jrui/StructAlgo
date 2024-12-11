@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LinkedList = void 0;
+exports.LinkedListNode = exports.LinkedList = void 0;
 /**
  *      LinkedList data structure. It is a linear data structure where elements are stored in a non-contiguous manner.
  * Each element is a separate object and contains a reference to the next and previous elements in the LinkedList.
@@ -44,7 +44,7 @@ var LinkedList = /** @class */ (function () {
         this.length++;
     };
     /**
-     * Removes the last value from the LinkedList.
+     * Removes the last node from the LinkedList and returns its value.
      */
     LinkedList.prototype.pop = function () {
         if (this.tail == null) {
@@ -100,12 +100,12 @@ var LinkedList = /** @class */ (function () {
         this.length++;
     };
     /**
-     * Returns the value at the given index.
+     * Returns the value of the node at the given index.
      *
      * @param index - index to be searched
      * @returns T | null
      */
-    LinkedList.prototype.get = function (index) {
+    LinkedList.prototype.getValue = function (index) {
         if (index < 0 || index >= this.length) {
             return null;
         }
@@ -114,6 +114,22 @@ var LinkedList = /** @class */ (function () {
             currentNode = currentNode.next;
         }
         return currentNode.value;
+    };
+    /**
+     * Returns the node at the given index.
+     *
+     * @param index - index to be searched
+     * @returns LinkedListNode<T> | null
+     */
+    LinkedList.prototype.getNode = function (index) {
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+        var currentNode = this.head;
+        for (var i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     };
     /**
      * Sets the value at the given index.
@@ -218,10 +234,10 @@ var LinkedList = /** @class */ (function () {
         var currentNode = this.head;
         var str = '';
         while (currentNode != null) {
-            str += currentNode.value + ' ';
+            str += currentNode.value + ' -> ';
             currentNode = currentNode.next;
         }
-        return str;
+        return str.slice(0, -4);
     };
     return LinkedList;
 }());
@@ -239,3 +255,4 @@ var LinkedListNode = /** @class */ (function () {
     }
     return LinkedListNode;
 }());
+exports.LinkedListNode = LinkedListNode;
