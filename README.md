@@ -22,8 +22,8 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Ring Buffer
   - [x] Stack
   - [x] Tree Set
+  - [x] Graph
   - [ ] AVL Tree
-  - [ ] Graph
   - [ ] Heap
   - [ ] LRU Cache
   - [ ] Queue
