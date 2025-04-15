@@ -24,13 +24,13 @@
  * );
  * quickSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
-export class QuickSort {
-    private readonly values: any[];
+export class QuickSort<T> {
+    private readonly values: T[];
     private readonly size: number;
-    private readonly defaultComparator: (a: any, b: any) => number;
+    private readonly defaultComparator: (a: T, b: T) => number;
 
 
-    constructor(array: any[] = [], comparatorFn = QuickSort.defaultComparator) {
+    constructor(array: T[] = [], comparatorFn = QuickSort.defaultComparator) {
         this.values = [...array];
         this.size = array.length;
         this.defaultComparator = comparatorFn;
@@ -93,14 +93,14 @@ export class QuickSort {
      * const quickSort = new QuickSort([3, 4, 1]);
      * quickSort.sort(); // returns new array with [1, 3, 4]
      */
-    sort() : any[] {
+    sort() : T[] {
         if (this.size <= 1) {
             return this.values;
         }
 
-        let pivot : any = this.values[0];
-        let leftArr : any[] = [];
-        let rightArr : any[] = [];
+        let pivot : T = this.values[0];
+        let leftArr : T[] = [];
+        let rightArr : T[] = [];
 
         for (let i = 1; i < this.size; i++) {
             if (this.defaultComparator(this.values[i], pivot) < 0) {
