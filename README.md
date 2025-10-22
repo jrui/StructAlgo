@@ -26,7 +26,7 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [ ] AVL Tree
   - [ ] Heap
   - [ ] LRU Cache
-  - [ ] Queue
+  - [x] Queue
   - [ ] Trie
 ### Algorithms
   - [x] Quick Sort

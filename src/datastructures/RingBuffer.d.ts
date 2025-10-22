@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RingBuffer = void 0;
 /**
  * Class implementation form RingBuffer object
  * Should allow for push and pop operations on it,
@@ -26,13 +23,12 @@ exports.RingBuffer = void 0;
  * 13. `[ _ 6 _ _ ]` - pop()
  * 14. `[ _ 6 7 _ ]` - push(7)
  */
-class RingBuffer {
-    constructor(size) {
-        this._pushIndex = 0;
-        this._popIndex = 0;
-        this._size = size;
-        this.ringBuffer = Array(size).map(_ => null);
-    }
+export declare class RingBuffer<T> {
+    ringBuffer: (T | null)[];
+    _size: number;
+    _pushIndex: number;
+    _popIndex: number;
+    constructor(size: number);
     /**
      * Pushes item into the ringBuffer
      * Will return true in case element is added, false
@@ -41,16 +37,7 @@ class RingBuffer {
      * @param elem - element to be added
      * @returns boolean
      */
-    push(elem) {
-        if (this.ringBuffer[this._pushIndex] == null) {
-            // Field is null, we can insert and update index
-            this.ringBuffer[this._pushIndex++] = elem;
-            this._pushIndex %= this._size;
-            return true;
-        }
-        // console.log(`Ring Buffer is full! Element [${elem}] not added.`);
-        return false;
-    }
+    push(elem: T): boolean;
     /**
      * Pops item from the ringBuffer, returning it.
      * Returns null if no elements and notifies there
@@ -58,18 +45,5 @@ class RingBuffer {
      *
      * @returns T | null
      */
-    pop() {
-        if (this.ringBuffer.every(elem => elem === null)) {
-            // If ringBuffer is empty
-            console.log('Nothing left to pop!');
-            return null;
-        }
-        else {
-            const popValue = this.ringBuffer[this._popIndex];
-            this.ringBuffer[this._popIndex++] = null;
-            this._popIndex %= this._size;
-            return popValue;
-        }
-    }
+    pop(): T | null;
 }
-exports.RingBuffer = RingBuffer;
