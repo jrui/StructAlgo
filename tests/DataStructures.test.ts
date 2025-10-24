@@ -26,4 +26,8 @@ describe('DataStructures', () => {
     test('Queue should be defined', () => {
         expect(datastructures.Queue).toBeDefined();
     });
+
+    test('LRUCache should be defined', () => {
+        expect(datastructures.LRUCache).toBeDefined();
+    });
 });

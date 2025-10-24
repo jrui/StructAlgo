@@ -1,13 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BubbleSort = void 0;
 /**
@@ -34,11 +25,9 @@ exports.BubbleSort = void 0;
  * );
  * bubbleSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
-var BubbleSort = /** @class */ (function () {
-    function BubbleSort(array, comparatorFn) {
-        if (array === void 0) { array = []; }
-        if (comparatorFn === void 0) { comparatorFn = BubbleSort.defaultComparator; }
-        this.values = __spreadArray([], array, true);
+class BubbleSort {
+    constructor(array = [], comparatorFn = BubbleSort.defaultComparator) {
+        this.values = [...array];
         this.size = array.length;
         this.defaultComparator = comparatorFn;
     }
@@ -50,25 +39,24 @@ var BubbleSort = /** @class */ (function () {
      * @param comparatorFn - the comparator function used for sorting, defaults to numerical comparison
      * @returns a new array with the elements sorted
      */
-    BubbleSort.sort = function (array, comparatorFn) {
-        if (comparatorFn === void 0) { comparatorFn = this.defaultComparator; }
+    static sort(array, comparatorFn = this.defaultComparator) {
         if (array.length <= 1) {
             return array;
         }
-        var sortedArray = __spreadArray([], array, true);
-        var n = sortedArray.length;
-        for (var i = 0; i < n - 1; i++) {
-            for (var j = 0; j < n - i - 1; j++) {
+        const sortedArray = [...array];
+        const n = sortedArray.length;
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - i - 1; j++) {
                 if (comparatorFn(sortedArray[j], sortedArray[j + 1]) > 0) {
                     // Swap elements
-                    var temp = sortedArray[j];
+                    const temp = sortedArray[j];
                     sortedArray[j] = sortedArray[j + 1];
                     sortedArray[j + 1] = temp;
                 }
             }
         }
         return sortedArray;
-    };
+    }
     /**
      * Default comparator function used for sorting
      *
@@ -76,7 +64,7 @@ var BubbleSort = /** @class */ (function () {
      * @param b - second element to compare
      * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
      */
-    BubbleSort.defaultComparator = function (a, b) {
+    static defaultComparator(a, b) {
         if (a < b) {
             return -1;
         }
@@ -86,7 +74,7 @@ var BubbleSort = /** @class */ (function () {
         else {
             return 1;
         }
-    };
+    }
     /**
      * Sorts the array using the BubbleSort algorithm.
      *
@@ -96,24 +84,23 @@ var BubbleSort = /** @class */ (function () {
      * const bubbleSort = new BubbleSort([3, 4, 1]);
      * bubbleSort.sort(); // returns new array with [1, 3, 4]
      */
-    BubbleSort.prototype.sort = function () {
+    sort() {
         if (this.size <= 1) {
             return this.values;
         }
-        var sortedArray = __spreadArray([], this.values, true);
-        for (var i = 0; i < this.size - 1; i++) {
-            for (var j = 0; j < this.size - i - 1; j++) {
+        const sortedArray = [...this.values];
+        for (let i = 0; i < this.size - 1; i++) {
+            for (let j = 0; j < this.size - i - 1; j++) {
                 if (this.defaultComparator(sortedArray[j], sortedArray[j + 1]) > 0) {
                     // Swap elements
-                    var temp = sortedArray[j];
+                    const temp = sortedArray[j];
                     sortedArray[j] = sortedArray[j + 1];
                     sortedArray[j + 1] = temp;
                 }
             }
         }
         return sortedArray;
-    };
+    }
     ;
-    return BubbleSort;
-}());
+}
 exports.BubbleSort = BubbleSort;

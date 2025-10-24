@@ -1,5 +1,6 @@
 export { HashSet } from './datastructures/HashSet';
 export { LinkedList } from './datastructures/LinkedList';
+export { LRUCache } from './datastructures/LRUCache';
 export { Queue } from './datastructures/Queue';
 export { RingBuffer } from './datastructures/RingBuffer';
 export { Stack } from './datastructures/Stack';

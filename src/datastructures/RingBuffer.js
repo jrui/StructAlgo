@@ -26,12 +26,12 @@ exports.RingBuffer = void 0;
  * 13. `[ _ 6 _ _ ]` - pop()
  * 14. `[ _ 6 7 _ ]` - push(7)
  */
-var RingBuffer = /** @class */ (function () {
-    function RingBuffer(size) {
+class RingBuffer {
+    constructor(size) {
         this._pushIndex = 0;
         this._popIndex = 0;
         this._size = size;
-        this.ringBuffer = Array(size).map(function (_) { return null; });
+        this.ringBuffer = Array(size).map(_ => null);
     }
     /**
      * Pushes item into the ringBuffer
@@ -41,7 +41,7 @@ var RingBuffer = /** @class */ (function () {
      * @param elem - element to be added
      * @returns boolean
      */
-    RingBuffer.prototype.push = function (elem) {
+    push(elem) {
         if (this.ringBuffer[this._pushIndex] == null) {
             // Field is null, we can insert and update index
             this.ringBuffer[this._pushIndex++] = elem;
@@ -50,7 +50,7 @@ var RingBuffer = /** @class */ (function () {
         }
         // console.log(`Ring Buffer is full! Element [${elem}] not added.`);
         return false;
-    };
+    }
     /**
      * Pops item from the ringBuffer, returning it.
      * Returns null if no elements and notifies there
@@ -58,19 +58,18 @@ var RingBuffer = /** @class */ (function () {
      *
      * @returns T | null
      */
-    RingBuffer.prototype.pop = function () {
-        if (this.ringBuffer.every(function (elem) { return elem === null; })) {
+    pop() {
+        if (this.ringBuffer.every(elem => elem === null)) {
             // If ringBuffer is empty
             console.log('Nothing left to pop!');
             return null;
         }
         else {
-            var popValue = this.ringBuffer[this._popIndex];
+            const popValue = this.ringBuffer[this._popIndex];
             this.ringBuffer[this._popIndex++] = null;
             this._popIndex %= this._size;
             return popValue;
         }
-    };
-    return RingBuffer;
-}());
+    }
+}
 exports.RingBuffer = RingBuffer;
