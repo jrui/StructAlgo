@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HashSet = void 0;
 /**
@@ -24,21 +33,23 @@ exports.HashSet = void 0;
  * hashSet.has(2); // false
  * hashSet.size(); // 2
  */
-class HashSet {
-    constructor(bucketsLength = 32) {
+var HashSet = /** @class */ (function () {
+    function HashSet(bucketsLength) {
+        if (bucketsLength === void 0) { bucketsLength = 32; }
         this.buckets = new Array(bucketsLength);
         this.keys = new Map();
     }
-    hash(key) {
+    HashSet.prototype.hash = function (key) {
         return key
             .split("")
-            .map((k) => k.charCodeAt(0))
-            .reduce((a, b) => a + b, 0) % this.buckets.length;
-    }
-    set(key, value) {
-        const hash = this.hash(key);
+            .map(function (k) { return k.charCodeAt(0); })
+            .reduce(function (a, b) { return a + b; }, 0) % this.buckets.length;
+    };
+    HashSet.prototype.set = function (key, value) {
+        var hash = this.hash(key);
         if (this.has(key)) {
-            for (let entry of this.buckets[hash]) {
+            for (var _i = 0, _a = this.buckets[hash]; _i < _a.length; _i++) {
+                var entry = _a[_i];
                 if (entry.key === key) {
                     entry.value = value;
                 }
@@ -48,43 +59,43 @@ class HashSet {
             if (!this.buckets[hash]) {
                 this.buckets[hash] = [];
             }
-            this.buckets[hash].push({ key, value });
+            this.buckets[hash].push({ key: key, value: value });
         }
         this.keys.set(key, hash);
-    }
-    has(key) {
+    };
+    HashSet.prototype.has = function (key) {
         return this.keys.has(key);
-    }
-    get(key) {
-        const hash = this.hash(key);
-        const bucket = this.buckets[hash];
-        return bucket?.find((v) => v.key === key)?.value;
-    }
-    delete(key) {
+    };
+    HashSet.prototype.get = function (key) {
+        var _a;
+        var hash = this.hash(key);
+        var bucket = this.buckets[hash];
+        return (_a = bucket === null || bucket === void 0 ? void 0 : bucket.find(function (v) { return v.key === key; })) === null || _a === void 0 ? void 0 : _a.value;
+    };
+    HashSet.prototype.delete = function (key) {
         if (!this.has(key)) {
             return null;
         }
-        const hash = this.hash(key);
+        var hash = this.hash(key);
         this.keys.delete(key);
         if (!this.buckets[hash]) {
             return null;
         }
-        this.buckets[this.hash(key)] = [
-            ...this.buckets[this.hash(key)].filter((pair) => pair.key != key),
-        ];
-    }
-    getKeys() {
-        let _keys = [];
-        this.keys.forEach((value, key) => {
+        this.buckets[this.hash(key)] = __spreadArray([], this.buckets[this.hash(key)].filter(function (pair) { return pair.key != key; }), true);
+    };
+    HashSet.prototype.getKeys = function () {
+        var _keys = [];
+        this.keys.forEach(function (value, key) {
             _keys.push(key);
         });
         return _keys;
-    }
-    getValues() {
-        return this.buckets.reduce((values, bucket) => {
-            const bucketValues = bucket.map((pair) => pair.value);
+    };
+    HashSet.prototype.getValues = function () {
+        return this.buckets.reduce(function (values, bucket) {
+            var bucketValues = bucket.map(function (pair) { return pair.value; });
             return values.concat(bucketValues);
         }, []);
-    }
-}
+    };
+    return HashSet;
+}());
 exports.HashSet = HashSet;

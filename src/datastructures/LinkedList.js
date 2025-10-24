@@ -19,8 +19,8 @@ exports.LinkedListNode = exports.LinkedList = void 0;
  * - indexOf(value: T): number - Returns the index of the given value.
  * - toString(): string - Returns a string representation of the LinkedList.
  */
-class LinkedList {
-    constructor() {
+var LinkedList = /** @class */ (function () {
+    function LinkedList() {
         this.head = null;
         this.tail = null;
         this.length = 0;
@@ -30,8 +30,8 @@ class LinkedList {
      *
      * @param value - value to be added
      */
-    push(value) {
-        const newNode = new LinkedListNode(value);
+    LinkedList.prototype.push = function (value) {
+        var newNode = new LinkedListNode(value);
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
@@ -42,15 +42,15 @@ class LinkedList {
             this.tail = newNode;
         }
         this.length++;
-    }
+    };
     /**
      * Removes the last node from the LinkedList and returns its value.
      */
-    pop() {
+    LinkedList.prototype.pop = function () {
         if (this.tail == null) {
             return null;
         }
-        let value = this.tail.value;
+        var value = this.tail.value;
         if (this.tail.prev != null) {
             this.tail = this.tail.prev;
             this.tail.next = null;
@@ -61,15 +61,15 @@ class LinkedList {
         }
         this.length--;
         return value;
-    }
+    };
     /**
      * Removes the first value from the LinkedList.
      */
-    shift() {
+    LinkedList.prototype.shift = function () {
         if (this.head == null) {
             return null;
         }
-        let value = this.head.value;
+        var value = this.head.value;
         if (this.head.next != null) {
             this.head = this.head.next;
             this.head.prev = null;
@@ -80,14 +80,14 @@ class LinkedList {
         }
         this.length--;
         return value;
-    }
+    };
     /**
      * Adds a new value to the beginning of the LinkedList.
      *
      * @param value - value to be added
      */
-    unshift(value) {
-        const newNode = new LinkedListNode(value);
+    LinkedList.prototype.unshift = function (value) {
+        var newNode = new LinkedListNode(value);
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
@@ -98,39 +98,39 @@ class LinkedList {
             this.head = newNode;
         }
         this.length++;
-    }
+    };
     /**
      * Returns the value of the node at the given index.
      *
      * @param index - index to be searched
      * @returns T | null
      */
-    getValue(index) {
+    LinkedList.prototype.getValue = function (index) {
         if (index < 0 || index >= this.length) {
             return null;
         }
-        let currentNode = this.head;
-        for (let i = 0; i < index; i++) {
+        var currentNode = this.head;
+        for (var i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         return currentNode.value;
-    }
+    };
     /**
      * Returns the node at the given index.
      *
      * @param index - index to be searched
      * @returns LinkedListNode<T> | null
      */
-    getNode(index) {
+    LinkedList.prototype.getNode = function (index) {
         if (index < 0 || index >= this.length) {
             return null;
         }
-        let currentNode = this.head;
-        for (let i = 0; i < index; i++) {
+        var currentNode = this.head;
+        for (var i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         return currentNode;
-    }
+    };
     /**
      * Sets the value at the given index.
      *
@@ -138,17 +138,17 @@ class LinkedList {
      * @param value - value to be set
      * @returns boolean
      */
-    set(index, value) {
+    LinkedList.prototype.set = function (index, value) {
         if (index < 0 || index >= this.length) {
             return false;
         }
-        let currentNode = this.head;
-        for (let i = 0; i < index; i++) {
+        var currentNode = this.head;
+        for (var i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         currentNode.value = value;
         return true;
-    }
+    };
     /**
      * Inserts a new value at the given index.
      *
@@ -156,7 +156,7 @@ class LinkedList {
      * @param value - value to be inserted
      * @returns boolean
      */
-    insert(index, value) {
+    LinkedList.prototype.insert = function (index, value) {
         if (index < 0 || index > this.length) {
             return false;
         }
@@ -167,9 +167,9 @@ class LinkedList {
             this.push(value);
         }
         else {
-            const newNode = new LinkedListNode(value);
-            let currentNode = this.head;
-            for (let i = 0; i < index; i++) {
+            var newNode = new LinkedListNode(value);
+            var currentNode = this.head;
+            for (var i = 0; i < index; i++) {
                 currentNode = currentNode.next;
             }
             newNode.next = currentNode;
@@ -179,19 +179,19 @@ class LinkedList {
             this.length++;
         }
         return true;
-    }
+    };
     /**
      * Removes the value at the given index.
      *
      * @param index - index to be removed
      * @returns T | null
      */
-    remove(index) {
+    LinkedList.prototype.remove = function (index) {
         if (index < 0 || index >= this.length) {
             return null;
         }
-        let currentNode = this.head;
-        for (let i = 0; i < index; i++) {
+        var currentNode = this.head;
+        for (var i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         if (currentNode.prev != null) {
@@ -208,49 +208,51 @@ class LinkedList {
         }
         this.length--;
         return currentNode.value;
-    }
+    };
     /**
      * Returns the index of the given value.
      *
      * @param value - value to be searched
      * @returns number
      */
-    indexOf(value) {
-        let currentNode = this.head;
-        for (let i = 0; i < this.length; i++) {
+    LinkedList.prototype.indexOf = function (value) {
+        var currentNode = this.head;
+        for (var i = 0; i < this.length; i++) {
             if (currentNode.value === value) {
                 return i;
             }
             currentNode = currentNode.next;
         }
         return -1;
-    }
+    };
     /**
      * Returns a string representation of the LinkedList.
      *
      * @returns string
      */
-    toString() {
-        let currentNode = this.head;
-        let str = '';
+    LinkedList.prototype.toString = function () {
+        var currentNode = this.head;
+        var str = '';
         while (currentNode != null) {
             str += currentNode.value + ' -> ';
             currentNode = currentNode.next;
         }
         return str.slice(0, -4);
-    }
-}
+    };
+    return LinkedList;
+}());
 exports.LinkedList = LinkedList;
 /**
  *      Node of a LinkedList data structure.
  *  Constructor takes a value and initializes it.
  *  Next and previous pointers are set to null.
  */
-class LinkedListNode {
-    constructor(value) {
+var LinkedListNode = /** @class */ (function () {
+    function LinkedListNode(value) {
         this.next = null;
         this.prev = null;
         this.value = value;
     }
-}
+    return LinkedListNode;
+}());
 exports.LinkedListNode = LinkedListNode;
