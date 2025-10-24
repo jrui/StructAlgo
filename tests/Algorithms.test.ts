@@ -7,4 +7,8 @@ describe('Algorithms', () => {
         expect(algorithms.QuickSort).toBeDefined();
     });
 
+    test('BubbleSort should be defined', () => {
+        expect(algorithms.BubbleSort).toBeDefined();
+    });
+
 });
