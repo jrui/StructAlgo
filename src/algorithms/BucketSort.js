@@ -1,13 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BucketSort = void 0;
 /**
@@ -37,12 +28,9 @@ exports.BucketSort = void 0;
  * );
  * bucketSort.sort(); // returns new array with [1, 2, 3, 4, 5, 6, 7, 8]
  */
-var BucketSort = /** @class */ (function () {
-    function BucketSort(array, comparatorFn, bucketCount) {
-        if (array === void 0) { array = []; }
-        if (comparatorFn === void 0) { comparatorFn = BucketSort.defaultComparator; }
-        if (bucketCount === void 0) { bucketCount = 10; }
-        this.values = __spreadArray([], array, true);
+class BucketSort {
+    constructor(array = [], comparatorFn = BucketSort.defaultComparator, bucketCount = 10) {
+        this.values = [...array];
         this.size = array.length;
         this.defaultComparator = comparatorFn;
         this.bucketCount = bucketCount;
@@ -56,16 +44,14 @@ var BucketSort = /** @class */ (function () {
      * @param bucketCount - the number of buckets to use, defaults to 10
      * @returns a new array with the elements sorted
      */
-    BucketSort.sort = function (array, comparatorFn, bucketCount) {
-        if (comparatorFn === void 0) { comparatorFn = this.defaultComparator; }
-        if (bucketCount === void 0) { bucketCount = 10; }
+    static sort(array, comparatorFn = this.defaultComparator, bucketCount = 10) {
         if (array.length <= 1) {
             return array;
         }
         // Find minimum and maximum values
-        var min = array[0];
-        var max = array[0];
-        for (var i = 1; i < array.length; i++) {
+        let min = array[0];
+        let max = array[0];
+        for (let i = 1; i < array.length; i++) {
             if (comparatorFn(array[i], min) < 0) {
                 min = array[i];
             }
@@ -74,27 +60,27 @@ var BucketSort = /** @class */ (function () {
             }
         }
         // Create buckets
-        var buckets = new Array(bucketCount);
-        for (var i = 0; i < bucketCount; i++) {
+        const buckets = new Array(bucketCount);
+        for (let i = 0; i < bucketCount; i++) {
             buckets[i] = [];
         }
         // Distribute elements into buckets
-        var range = max - min;
-        for (var i = 0; i < array.length; i++) {
-            var bucketIndex = range === 0 ? 0 : Math.floor(((array[i] - min) / range) * (bucketCount - 1));
+        const range = max - min;
+        for (let i = 0; i < array.length; i++) {
+            const bucketIndex = range === 0 ? 0 : Math.floor(((array[i] - min) / range) * (bucketCount - 1));
             buckets[bucketIndex].push(array[i]);
         }
         // Sort each bucket and concatenate
-        var sortedArray = [];
-        for (var i = 0; i < bucketCount; i++) {
+        const sortedArray = [];
+        for (let i = 0; i < bucketCount; i++) {
             if (buckets[i].length > 0) {
                 // Use insertion sort for individual buckets
                 buckets[i].sort(comparatorFn);
-                sortedArray.push.apply(sortedArray, buckets[i]);
+                sortedArray.push(...buckets[i]);
             }
         }
         return sortedArray;
-    };
+    }
     /**
      * Default comparator function used for sorting
      *
@@ -102,7 +88,7 @@ var BucketSort = /** @class */ (function () {
      * @param b - second element to compare
      * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
      */
-    BucketSort.defaultComparator = function (a, b) {
+    static defaultComparator(a, b) {
         if (a < b) {
             return -1;
         }
@@ -112,7 +98,7 @@ var BucketSort = /** @class */ (function () {
         else {
             return 1;
         }
-    };
+    }
     /**
      * Sorts the array using the BucketSort algorithm.
      *
@@ -122,14 +108,14 @@ var BucketSort = /** @class */ (function () {
      * const bucketSort = new BucketSort([0.42, 0.32, 0.33, 0.52, 0.37, 0.47, 0.51]);
      * bucketSort.sort(); // returns new array with [0.32, 0.33, 0.37, 0.42, 0.47, 0.51, 0.52]
      */
-    BucketSort.prototype.sort = function () {
+    sort() {
         if (this.size <= 1) {
             return this.values;
         }
         // Find minimum and maximum values
-        var min = this.values[0];
-        var max = this.values[0];
-        for (var i = 1; i < this.size; i++) {
+        let min = this.values[0];
+        let max = this.values[0];
+        for (let i = 1; i < this.size; i++) {
             if (this.defaultComparator(this.values[i], min) < 0) {
                 min = this.values[i];
             }
@@ -138,28 +124,27 @@ var BucketSort = /** @class */ (function () {
             }
         }
         // Create buckets
-        var buckets = new Array(this.bucketCount);
-        for (var i = 0; i < this.bucketCount; i++) {
+        const buckets = new Array(this.bucketCount);
+        for (let i = 0; i < this.bucketCount; i++) {
             buckets[i] = [];
         }
         // Distribute elements into buckets
-        var range = max - min;
-        for (var i = 0; i < this.size; i++) {
-            var bucketIndex = range === 0 ? 0 : Math.floor(((this.values[i] - min) / range) * (this.bucketCount - 1));
+        const range = max - min;
+        for (let i = 0; i < this.size; i++) {
+            const bucketIndex = range === 0 ? 0 : Math.floor(((this.values[i] - min) / range) * (this.bucketCount - 1));
             buckets[bucketIndex].push(this.values[i]);
         }
         // Sort each bucket and concatenate
-        var sortedArray = [];
-        for (var i = 0; i < this.bucketCount; i++) {
+        const sortedArray = [];
+        for (let i = 0; i < this.bucketCount; i++) {
             if (buckets[i].length > 0) {
                 // Use insertion sort for individual buckets
                 buckets[i].sort(this.defaultComparator);
-                sortedArray.push.apply(sortedArray, buckets[i]);
+                sortedArray.push(...buckets[i]);
             }
         }
         return sortedArray;
-    };
+    }
     ;
-    return BucketSort;
-}());
+}
 exports.BucketSort = BucketSort;
