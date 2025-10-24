@@ -30,8 +30,8 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [ ] Trie
 ### Algorithms
   - [x] Quick Sort
-  - [ ] Bubble Sort
-  - [ ] Bucket Sort
+  - [x] Bubble Sort
+  - [x] Bucket Sort
   - [ ] Counting Sort
   - [ ] Insertion Sort
   - [ ] Merge Sort
