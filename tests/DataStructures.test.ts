@@ -22,4 +22,8 @@ describe('DataStructures', () => {
     test('LinkedList should be defined', () => {
         expect(datastructures.LinkedList).toBeDefined();
     });
+
+    test('Queue should be defined', () => {
+        expect(datastructures.Queue).toBeDefined();
+    });
 });

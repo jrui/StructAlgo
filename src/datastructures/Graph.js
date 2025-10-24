@@ -16,64 +16,61 @@ exports.Graph = void 0;
  * graph.getAllEdges(); // [[0, 1, 2], [1, 2, 3], [2, 3, 4]]
  * graph.getAllNodes(); // [0, 1, 2, 3]
  */
-var Graph = /** @class */ (function () {
-    function Graph(numberOfNodes, defaultWeight) {
-        if (numberOfNodes === void 0) { numberOfNodes = 32; }
-        if (defaultWeight === void 0) { defaultWeight = 0; }
+class Graph {
+    constructor(numberOfNodes = 32, defaultWeight = 0) {
         this.weightMatrix = new Array(numberOfNodes);
         this.defaultWeight = defaultWeight;
-        for (var i = 0; i < numberOfNodes; i++) {
+        for (let i = 0; i < numberOfNodes; i++) {
             this.weightMatrix[i] = new Array(numberOfNodes)
                 .fill(this.defaultWeight);
         }
     }
-    Graph.prototype.addEdge = function (source, destination, weight) {
+    addEdge(source, destination, weight) {
         this.weightMatrix[source][destination] = weight;
         this.weightMatrix[destination][source] = weight;
-    };
-    Graph.prototype.removeEdge = function (source, destination) {
+    }
+    removeEdge(source, destination) {
         this.weightMatrix[source][destination] = this.defaultWeight;
         this.weightMatrix[destination][source] = this.defaultWeight;
-    };
-    Graph.prototype.isEdge = function (source, destination) {
+    }
+    isEdge(source, destination) {
         return this.weightMatrix[source][destination] !== this.defaultWeight;
-    };
-    Graph.prototype.getWeight = function (source, destination) {
+    }
+    getWeight(source, destination) {
         return this.weightMatrix[source][destination];
-    };
-    Graph.prototype.getNeighbors = function (node) {
-        var neighbors = [];
-        for (var i = 0; i < this.weightMatrix[node].length; i++) {
+    }
+    getNeighbors(node) {
+        const neighbors = [];
+        for (let i = 0; i < this.weightMatrix[node].length; i++) {
             if (this.weightMatrix[node][i] !== this.defaultWeight) {
                 neighbors.push(i);
             }
         }
         return neighbors;
-    };
-    Graph.prototype.getAllEdges = function () {
-        var edges = [];
-        for (var i = 0; i < this.weightMatrix.length; i++) {
-            for (var j = 0; j < this.weightMatrix[i].length; j++) {
+    }
+    getAllEdges() {
+        const edges = [];
+        for (let i = 0; i < this.weightMatrix.length; i++) {
+            for (let j = 0; j < this.weightMatrix[i].length; j++) {
                 if (this.weightMatrix[i][j] !== this.defaultWeight) {
                     edges.push([i, j, this.weightMatrix[i][j]]);
                 }
             }
         }
         return edges;
-    };
-    Graph.prototype.getAllNodes = function () {
-        var nodes = [];
-        for (var i = 0; i < this.weightMatrix.length; i++) {
+    }
+    getAllNodes() {
+        const nodes = [];
+        for (let i = 0; i < this.weightMatrix.length; i++) {
             nodes.push(i);
         }
         return nodes;
-    };
-    Graph.prototype.getWeightMatrix = function () {
+    }
+    getWeightMatrix() {
         return this.weightMatrix;
-    };
-    Graph.prototype.getDefaultWeight = function () {
+    }
+    getDefaultWeight() {
         return this.defaultWeight;
-    };
-    return Graph;
-}());
+    }
+}
 exports.Graph = Graph;

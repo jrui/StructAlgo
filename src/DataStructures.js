@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Graph = exports.TreeSet = exports.Stack = exports.RingBuffer = exports.LinkedList = exports.HashSet = void 0;
+exports.Graph = exports.TreeSet = exports.Stack = exports.RingBuffer = exports.Queue = exports.LinkedList = exports.HashSet = void 0;
 var HashSet_1 = require("./datastructures/HashSet");
 Object.defineProperty(exports, "HashSet", { enumerable: true, get: function () { return HashSet_1.HashSet; } });
 var LinkedList_1 = require("./datastructures/LinkedList");
 Object.defineProperty(exports, "LinkedList", { enumerable: true, get: function () { return LinkedList_1.LinkedList; } });
+var Queue_1 = require("./datastructures/Queue");
+Object.defineProperty(exports, "Queue", { enumerable: true, get: function () { return Queue_1.Queue; } });
 var RingBuffer_1 = require("./datastructures/RingBuffer");
 Object.defineProperty(exports, "RingBuffer", { enumerable: true, get: function () { return RingBuffer_1.RingBuffer; } });
 var Stack_1 = require("./datastructures/Stack");
