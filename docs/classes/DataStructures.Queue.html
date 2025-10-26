@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Stack | structalgo</title><meta name="description" content="Documentation for structalgo"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Queue | structalgo</title><meta name="description" content="Documentation for structalgo"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -14,13 +14,13 @@
 <ul class="tsd-breadcrumb">
 <li><a href="../index.html">structalgo</a></li>
 <li><a href="../modules/DataStructures.html">DataStructures</a></li>
-<li><a href="DataStructures.Stack.html">Stack</a></li></ul>
-<h1>Class Stack&lt;T&gt;</h1></div>
+<li><a href="DataStructures.Queue.html">Queue</a></li></ul>
+<h1>Class Queue&lt;T&gt;</h1></div>
 <section class="tsd-panel tsd-comment">
-<div class="tsd-comment tsd-typography"><p>Stack data structure</p>
+<div class="tsd-comment tsd-typography"><p>Queue data structure</p>
 </div>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">stack</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-5">Stack</span><span class="hl-1">();</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">push</span><span class="hl-1">(</span><span class="hl-7">1</span><span class="hl-1">);</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">push</span><span class="hl-1">(</span><span class="hl-7">2</span><span class="hl-1">);</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// 2</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">pop</span><span class="hl-1">(); </span><span class="hl-6">// 2</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// 1</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">pop</span><span class="hl-1">(); </span><span class="hl-6">// 1</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// null</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">pop</span><span class="hl-1">(); </span><span class="hl-6">// null</span><br/><span class="hl-1"> </span><span class="hl-4">stack</span><span class="hl-1">.</span><span class="hl-5">isEmpty</span><span class="hl-1">(); </span><span class="hl-6">// true</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">queue</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-5">Queue</span><span class="hl-1">();</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">enqueue</span><span class="hl-1">(</span><span class="hl-7">1</span><span class="hl-1">);</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">enqueue</span><span class="hl-1">(</span><span class="hl-7">2</span><span class="hl-1">);</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// 1</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">dequeue</span><span class="hl-1">(); </span><span class="hl-6">// 1</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// 2</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">dequeue</span><span class="hl-1">(); </span><span class="hl-6">// 2</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">peek</span><span class="hl-1">(); </span><span class="hl-6">// null</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">dequeue</span><span class="hl-1">(); </span><span class="hl-6">// null</span><br/><span class="hl-1"> </span><span class="hl-4">queue</span><span class="hl-1">.</span><span class="hl-5">isEmpty</span><span class="hl-1">(); </span><span class="hl-6">// true</span>
 </code><button>Copy</button></pre>
 </div></section> 
 <section class="tsd-panel">
@@ -31,9 +31,9 @@
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
-<li><span class="target">Stack</span></li></ul></section><aside class="tsd-sources">
+<li><span class="target">Queue</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L16">datastructures/Stack.ts:16</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L16">datastructures/Queue.ts:16</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -41,87 +41,64 @@
 <div class="tsd-accordion-details">
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Constructors</h3>
-<div class="tsd-index-list"><a href="DataStructures.Stack.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-512"><rect fill="var(--color-icon-background)" stroke="#4D7FFF" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>constructor</span></a>
+<div class="tsd-index-list"><a href="DataStructures.Queue.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-512"><rect fill="var(--color-icon-background)" stroke="#4D7FFF" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>constructor</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="DataStructures.Stack.html#data" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>data</span></a>
+<div class="tsd-index-list"><a href="DataStructures.Queue.html#data" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>data</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
-<div class="tsd-index-list"><a href="DataStructures.Stack.html#isEmpty" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-2048"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)"></path></g></svg><span>is<wbr/>Empty</span></a>
-<a href="DataStructures.Stack.html#peek" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>peek</span></a>
-<a href="DataStructures.Stack.html#pop" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>pop</span></a>
-<a href="DataStructures.Stack.html#push" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>push</span></a>
-<a href="DataStructures.Stack.html#toArray" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>Array</span></a>
-<a href="DataStructures.Stack.html#toString" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>String</span></a>
+<div class="tsd-index-list"><a href="DataStructures.Queue.html#dequeue" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-2048"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)"></path></g></svg><span>dequeue</span></a>
+<a href="DataStructures.Queue.html#enqueue" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>enqueue</span></a>
+<a href="DataStructures.Queue.html#isEmpty" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>is<wbr/>Empty</span></a>
+<a href="DataStructures.Queue.html#peek" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>peek</span></a>
+<a href="DataStructures.Queue.html#size" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>size</span></a>
+<a href="DataStructures.Queue.html#toArray" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>Array</span></a>
+<a href="DataStructures.Queue.html#toString" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>String</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
 <section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_Stack"><span class="tsd-kind-constructor-signature">new <wbr/>Stack</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DataStructures.Stack.html" class="tsd-signature-type tsd-kind-class">Stack</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><a href="#constructor.new_Stack" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_Queue"><span class="tsd-kind-constructor-signature">new <wbr/>Queue</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DataStructures.Queue.html" class="tsd-signature-type tsd-kind-class">Queue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><a href="#constructor.new_Queue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <section class="tsd-panel">
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameter-list">
 <li>
 <h4><span class="tsd-kind-type-parameter">T</span></h4></li></ul></section>
-<h4 class="tsd-returns-title">Returns <a href="DataStructures.Stack.html" class="tsd-signature-type tsd-kind-class">Stack</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="DataStructures.Queue.html" class="tsd-signature-type tsd-kind-class">Queue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L19">datastructures/Stack.ts:19</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L19">datastructures/Queue.ts:19</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="data" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>data</span><a href="#data" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">data</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L17">datastructures/Stack.ts:17</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L17">datastructures/Queue.ts:17</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
-<section class="tsd-panel tsd-member"><a id="isEmpty" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>is<wbr/>Empty</span><a href="#isEmpty" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<section class="tsd-panel tsd-member"><a id="dequeue" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>dequeue</span><a href="#dequeue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="isEmpty.isEmpty-1"><span class="tsd-kind-call-signature">is<wbr/>Empty</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#isEmpty.isEmpty-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="dequeue.dequeue-1"><span class="tsd-kind-call-signature">dequeue</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#dequeue.dequeue-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Returns true if a stack is empty</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><p>boolean</p>
-
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L50">datastructures/Stack.ts:50</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="peek" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>peek</span><a href="#peek" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="peek.peek-1"><span class="tsd-kind-call-signature">peek</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#peek.peek-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Returns the first element of a stack</p>
+<div class="tsd-comment tsd-typography"><p>Removes the first element from a queue and returns it</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4><p>any</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L37">datastructures/Stack.ts:37</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="pop" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>pop</span><a href="#pop" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L59">datastructures/Queue.ts:59</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="enqueue" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>enqueue</span><a href="#enqueue" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="pop.pop-1"><span class="tsd-kind-call-signature">pop</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#pop.pop-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="enqueue.enqueue-1"><span class="tsd-kind-call-signature">enqueue</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">value</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#enqueue.enqueue-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Removes the last element from a stack and returns it</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4><p>any</p>
-
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L59">datastructures/Stack.ts:59</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="push" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>push</span><a href="#push" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="push.push-1"><span class="tsd-kind-call-signature">push</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">value</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#push.push-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Appends a new element to a stack</p>
+<div class="tsd-comment tsd-typography"><p>Appends a new element to the end of the queue</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,25 +109,61 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L28">datastructures/Stack.ts:28</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L28">datastructures/Queue.ts:28</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="isEmpty" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>is<wbr/>Empty</span><a href="#isEmpty" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="isEmpty.isEmpty-1"><span class="tsd-kind-call-signature">is<wbr/>Empty</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#isEmpty.isEmpty-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Returns true if a queue is empty</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><p>boolean</p>
+
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L50">datastructures/Queue.ts:50</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="peek" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>peek</span><a href="#peek" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="peek.peek-1"><span class="tsd-kind-call-signature">peek</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#peek.peek-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Returns the first element of a queue</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4><p>any</p>
+
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L37">datastructures/Queue.ts:37</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="size" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>size</span><a href="#size" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="size.size-1"><span class="tsd-kind-call-signature">size</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#size.size-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Returns the number of elements in the queue</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>number</p>
+
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L72">datastructures/Queue.ts:72</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toArray" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>to<wbr/>Array</span><a href="#toArray" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="toArray.toArray-1"><span class="tsd-kind-call-signature">to<wbr/>Array</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span><a href="#toArray.toArray-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Returns an array representation of a stack</p>
+<div class="tsd-comment tsd-typography"><p>Returns an array representation of a queue</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">[]</span></h4><p>T[]</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L81">datastructures/Stack.ts:81</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L90">datastructures/Queue.ts:90</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="toString" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>to<wbr/>String</span><a href="#toString" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="toString.toString-1"><span class="tsd-kind-call-signature">to<wbr/>String</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">stringify</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#toString.toString-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Returns a string representation of a stack</p>
+<div class="tsd-comment tsd-typography"><p>Returns a string representation of a queue</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,7 +184,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Stack.ts#L72">datastructures/Stack.ts:72</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/jrui/StructAlgo/blob/b458d1a/src/datastructures/Queue.ts#L81">datastructures/Queue.ts:81</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -193,10 +206,11 @@
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
 <li><a href="#data" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>data</span></a></li>
+<li><a href="#dequeue" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>dequeue</span></a></li>
+<li><a href="#enqueue" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>enqueue</span></a></li>
 <li><a href="#isEmpty" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>is<wbr/>Empty</span></a></li>
 <li><a href="#peek" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>peek</span></a></li>
-<li><a href="#pop" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>pop</span></a></li>
-<li><a href="#push" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>push</span></a></li>
+<li><a href="#size" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>size</span></a></li>
 <li><a href="#toArray" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>Array</span></a></li>
 <li><a href="#toString" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>String</span></a></li></ul></div></details></div>
 <div class="site-menu">
@@ -218,9 +232,9 @@
 <li><a href="DataStructures.LRUCache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>LRUCache</span></a></li>
 <li><a href="DataStructures.LinkedList.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Linked<wbr/>List</span></a></li>
 <li><a href="DataStructures.PriorityQueue.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Priority<wbr/>Queue</span></a></li>
-<li><a href="DataStructures.Queue.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Queue</span></a></li>
+<li><a href="DataStructures.Queue.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Queue</span></a></li>
 <li><a href="DataStructures.RingBuffer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Ring<wbr/>Buffer</span></a></li>
-<li><a href="DataStructures.Stack.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Stack</span></a></li>
+<li><a href="DataStructures.Stack.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Stack</span></a></li>
 <li><a href="DataStructures.TreeSet.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Tree<wbr/>Set</span></a></li>
 <li><a href="DataStructures.Trie.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg><span>Trie</span></a></li></ul></div></details></li></ul></nav></div></div></div>
 <div class="tsd-generator">
