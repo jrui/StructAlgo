@@ -85,13 +85,17 @@ class Prim {
      * @returns weighted graph as adjacency list
      */
     static edgesToGraph(edges) {
-        const graph = {};
+        const graph = Object.create(null);
         for (const edge of edges) {
+            // Avoid prototype pollution by checking for dangerous keys
+            if (edge.from === '__proto__' || edge.to === '__proto__') {
+                throw new Error('Invalid vertex name: __proto__ is not allowed');
+            }
             if (!graph[edge.from]) {
-                graph[edge.from] = {};
+                graph[edge.from] = Object.create(null);
             }
             if (!graph[edge.to]) {
-                graph[edge.to] = {};
+                graph[edge.to] = Object.create(null);
             }
             graph[edge.from][edge.to] = edge.weight;
             graph[edge.to][edge.from] = edge.weight; // Undirected graph
