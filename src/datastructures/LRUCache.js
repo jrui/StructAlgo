@@ -4,14 +4,15 @@ exports.LRUCache = void 0;
 /**
  * Node class for doubly linked list used in LRU Cache
  */
-class LRUNode {
-    constructor(key, value) {
+var LRUNode = /** @class */ (function () {
+    function LRUNode(key, value) {
         this.key = key;
         this.value = value;
         this.prev = null;
         this.next = null;
     }
-}
+    return LRUNode;
+}());
 /**
  * LRU (Least Recently Used) Cache data structure
  *
@@ -31,12 +32,12 @@ class LRUNode {
  * cache.get(2); // null
  * cache.get(3); // 'three'
  */
-class LRUCache {
+var LRUCache = /** @class */ (function () {
     /**
      * Creates a new LRU Cache with the specified capacity
      * @param capacity Maximum number of items the cache can hold
      */
-    constructor(capacity) {
+    function LRUCache(capacity) {
         if (capacity <= 0) {
             throw new Error('Capacity must be greater than 0');
         }
@@ -51,15 +52,15 @@ class LRUCache {
      * @param key The key to look up
      * @returns The value associated with the key, or null if not found
      */
-    get(key) {
-        const node = this.cache.get(key);
+    LRUCache.prototype.get = function (key) {
+        var node = this.cache.get(key);
         if (!node) {
             return null;
         }
         // Move to front (most recently used)
         this.moveToFront(node);
         return node.value;
-    }
+    };
     /**
      * Puts a key-value pair into the cache
      * If the key already exists, updates the value
@@ -67,8 +68,8 @@ class LRUCache {
      * @param key The key to store
      * @param value The value to store
      */
-    put(key, value) {
-        const existingNode = this.cache.get(key);
+    LRUCache.prototype.put = function (key, value) {
+        var existingNode = this.cache.get(key);
         if (existingNode) {
             // Update existing node
             existingNode.value = value;
@@ -76,7 +77,7 @@ class LRUCache {
         }
         else {
             // Create new node
-            const newNode = new LRUNode(key, value);
+            var newNode = new LRUNode(key, value);
             // Check capacity
             if (this.cache.size >= this.capacity) {
                 this.evictLRU();
@@ -85,85 +86,85 @@ class LRUCache {
             this.cache.set(key, newNode);
             this.addToFront(newNode);
         }
-    }
+    };
     /**
      * Returns the current size of the cache
      * @returns The number of items in the cache
      */
-    size() {
+    LRUCache.prototype.size = function () {
         return this.cache.size;
-    }
+    };
     /**
      * Clears all items from the cache
      */
-    clear() {
+    LRUCache.prototype.clear = function () {
         this.cache.clear();
         this.head = null;
         this.tail = null;
-    }
+    };
     /**
      * Checks if a key exists in the cache
      * Does not mark the key as recently used
      * @param key The key to check
      * @returns true if the key exists, false otherwise
      */
-    has(key) {
+    LRUCache.prototype.has = function (key) {
         return this.cache.has(key);
-    }
+    };
     /**
      * Removes a key from the cache
      * @param key The key to remove
      * @returns true if the key was removed, false if it didn't exist
      */
-    delete(key) {
-        const node = this.cache.get(key);
+    LRUCache.prototype.delete = function (key) {
+        var node = this.cache.get(key);
         if (!node) {
             return false;
         }
         this.removeNode(node);
         this.cache.delete(key);
         return true;
-    }
+    };
     /**
      * Returns an array of all keys in the cache, ordered from most to least recently used
      * @returns Array of keys
      */
-    keys() {
-        const keys = [];
-        let current = this.head;
+    LRUCache.prototype.keys = function () {
+        var keys = [];
+        var current = this.head;
         while (current) {
             keys.push(current.key);
             current = current.next;
         }
         return keys;
-    }
+    };
     /**
      * Returns an array of all values in the cache, ordered from most to least recently used
      * @returns Array of values
      */
-    values() {
-        const values = [];
-        let current = this.head;
+    LRUCache.prototype.values = function () {
+        var values = [];
+        var current = this.head;
         while (current) {
             values.push(current.value);
             current = current.next;
         }
         return values;
-    }
+    };
     /**
      * Moves a node to the front of the list (most recently used position)
      */
-    moveToFront(node) {
+    LRUCache.prototype.moveToFront = function (node) {
         if (node === this.head) {
             return; // Already at front
         }
         this.removeNode(node);
         this.addToFront(node);
-    }
+    };
     /**
      * Adds a node to the front of the list
      */
-    addToFront(node) {
+    LRUCache.prototype.addToFront = function (node) {
         node.next = this.head;
         node.prev = null;
         if (this.head) {
@@ -173,11 +174,11 @@ class LRUCache {
         if (!this.tail) {
             this.tail = node;
         }
-    }
+    };
     /**
      * Removes a node from the list
      */
-    removeNode(node) {
+    LRUCache.prototype.removeNode = function (node) {
         if (node.prev) {
             node.prev.next = node.next;
         }
@@ -190,16 +191,17 @@ class LRUCache {
         else {
             this.tail = node.prev;
         }
-    }
+    };
     /**
      * Evicts the least recently used item (tail of the list)
      */
-    evictLRU() {
+    LRUCache.prototype.evictLRU = function () {
         if (!this.tail) {
             return;
         }
         this.cache.delete(this.tail.key);
         this.removeNode(this.tail);
-    }
-}
+    };
+    return LRUCache;
+}());
 exports.LRUCache = LRUCache;

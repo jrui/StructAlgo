@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Queue = void 0;
 /**
@@ -16,64 +25,65 @@ exports.Queue = void 0;
  *  queue.dequeue(); // null
  *  queue.isEmpty(); // true
  */
-class Queue {
-    constructor() {
+var Queue = /** @class */ (function () {
+    function Queue() {
         this.data = [];
     }
     /**
      * Appends a new element to the end of the queue
      * @param  {any} value
      */
-    enqueue(value) {
+    Queue.prototype.enqueue = function (value) {
         this.data.push(value);
-    }
+    };
     /**
      * Returns the first element of a queue
      * @returns any
      */
-    peek() {
+    Queue.prototype.peek = function () {
         if (this.isEmpty()) {
             return null;
         }
         return this.data[0];
-    }
+    };
     /**
      * Returns true if a queue is empty
      * @returns boolean
      */
-    isEmpty() {
+    Queue.prototype.isEmpty = function () {
         return this.data.length == 0;
-    }
+    };
     /**
      * Removes the first element from a queue and returns it
      * @returns any
      */
-    dequeue() {
+    Queue.prototype.dequeue = function () {
         if (this.isEmpty()) {
             return null;
         }
         return this.data.shift();
-    }
+    };
     /**
      * Returns the number of elements in the queue
      * @returns number
      */
-    size() {
+    Queue.prototype.size = function () {
         return this.data.length;
-    }
+    };
     /**
      * Returns a string representation of a queue
      * @param  {(value: any) => string} stringify? A function that converts an element to a string
      */
-    toString(stringify) {
-        return this.toArray().map(i => stringify ? stringify(i) : `${i}`).join(',');
-    }
+    Queue.prototype.toString = function (stringify) {
+        return this.toArray().map(function (i) { return stringify ? stringify(i) : "".concat(i); }).join(',');
+    };
     /**
      * Returns an array representation of a queue
      * @returns T[]
      */
-    toArray() {
-        return [...this.data];
-    }
-}
+    Queue.prototype.toArray = function () {
+        return __spreadArray([], this.data, true);
+    };
+    return Queue;
+}());
 exports.Queue = Queue;

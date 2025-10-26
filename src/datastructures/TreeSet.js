@@ -10,70 +10,70 @@ exports.TreeSet = void 0;
  * treeSet.setElements([1, 2, 3]);
  * treeSet.size(); // 3
  */
-class TreeSet {
-    constructor(comparator) {
+var TreeSet = /** @class */ (function () {
+    function TreeSet(comparator) {
         this.comparator = comparator;
         this.elements = [];
         this.length = 0;
     }
-    setElements(elements) {
+    TreeSet.prototype.setElements = function (elements) {
         this.elements = elements;
         this.length = elements.length;
-    }
-    size() {
+    };
+    TreeSet.prototype.size = function () {
         return this.elements.length;
-    }
-    last() {
+    };
+    TreeSet.prototype.last = function () {
         if (this.isEmpty())
             return null;
         else if (this.length === 1)
             return this.first();
         else
             return this.elements[this.length - 1];
-    }
-    first() {
+    };
+    TreeSet.prototype.first = function () {
         if (this.isEmpty())
             return null;
         else
             return this.elements[0];
-    }
-    isEmpty() {
+    };
+    TreeSet.prototype.isEmpty = function () {
         return this.size() === 0;
-    }
-    pullLast() {
+    };
+    TreeSet.prototype.pullLast = function () {
         if (this.length > 0) {
             this.length--;
             return this.elements.splice(this.length, 1);
         }
         return null;
-    }
-    pullFirst() {
+    };
+    TreeSet.prototype.pullFirst = function () {
         if (this.length > 0) {
             this.length--;
             return this.elements.splice(0, 1);
         }
         return null;
-    }
-    add(element) {
-        let index = this.binarySearch(element);
+    };
+    TreeSet.prototype.add = function (element) {
+        var index = this.binarySearch(element);
         if (index < 0) {
             index = -(index + 1);
             this.elements.splice(index, 0, element);
             this.length++;
         }
-    }
+    };
     /**
      * Performs a binary search of value in array
      * @param {number} value - Value to search in array
      * @return {number} If value is found, returns its index in array. Otherwise, returns a negative number indicating where the value should be inserted: -(index + 1)
      */
-    binarySearch(value) {
-        let low = 0;
-        let high = this.elements.length - 1;
+    TreeSet.prototype.binarySearch = function (value) {
+        var low = 0;
+        var high = this.elements.length - 1;
         while (low <= high) {
-            const mid = (low + high) >>> 1;
-            const midValue = this.elements[mid];
-            const cmp = this.comparator(midValue, value);
+            var mid = (low + high) >>> 1;
+            var midValue = this.elements[mid];
+            var cmp = this.comparator(midValue, value);
             if (cmp < 0) {
                 low = mid + 1;
             }
@@ -85,6 +85,7 @@ class TreeSet {
             }
         }
         return -(low + 1);
-    }
-}
+    };
+    return TreeSet;
+}());
 exports.TreeSet = TreeSet;

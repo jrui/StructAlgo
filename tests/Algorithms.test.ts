@@ -11,4 +11,8 @@ describe('Algorithms', () => {
         expect(algorithms.BubbleSort).toBeDefined();
     });
 
+    test('CountingSort should be defined', () => {
+        expect(algorithms.CountingSort).toBeDefined();
+    });
+
 });

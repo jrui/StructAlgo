@@ -32,7 +32,7 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Quick Sort
   - [x] Bubble Sort
   - [x] Bucket Sort
-  - [ ] Counting Sort
+  - [x] Counting Sort
   - [ ] Insertion Sort
   - [ ] Merge Sort
   - [ ] Radix Sort

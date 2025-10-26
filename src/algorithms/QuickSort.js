@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuickSort = void 0;
 /**
@@ -27,9 +36,11 @@ exports.QuickSort = void 0;
  * );
  * quickSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
-class QuickSort {
-    constructor(array = [], comparatorFn = QuickSort.defaultComparator) {
-        this.values = [...array];
+var QuickSort = /** @class */ (function () {
+    function QuickSort(array, comparatorFn) {
+        if (array === void 0) { array = []; }
+        if (comparatorFn === void 0) { comparatorFn = QuickSort.defaultComparator; }
+        this.values = __spreadArray([], array, true);
         this.size = array.length;
         this.defaultComparator = comparatorFn;
     }
@@ -41,14 +52,15 @@ class QuickSort {
      * @param comparatorFn - the comparator function used for sorting, defaults to numerical comparison
      * @returns a new array with the elements sorted
      */
-    static sort(array, comparatorFn = this.defaultComparator) {
+    QuickSort.sort = function (array, comparatorFn) {
+        if (comparatorFn === void 0) { comparatorFn = this.defaultComparator; }
         if (array.length <= 1) {
             return array;
         }
-        let pivot = array[0];
-        let leftArr = [];
-        let rightArr = [];
-        for (let i = 1; i < array.length; i++) {
+        var pivot = array[0];
+        var leftArr = [];
+        var rightArr = [];
+        for (var i = 1; i < array.length; i++) {
             if (comparatorFn(array[i], pivot) < 0) {
                 leftArr.push(array[i]);
             }
@@ -56,8 +68,8 @@ class QuickSort {
                 rightArr.push(array[i]);
             }
         }
-        return [...QuickSort.sort(leftArr), pivot, ...QuickSort.sort(rightArr)];
-    }
+        return __spreadArray(__spreadArray(__spreadArray([], QuickSort.sort(leftArr), true), [pivot], false), QuickSort.sort(rightArr), true);
+    };
     /**
      * Default comparator function used for sorting
      *
@@ -65,7 +77,7 @@ class QuickSort {
      * @param b - second element to compare
      * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
      */
-    static defaultComparator(a, b) {
+    QuickSort.defaultComparator = function (a, b) {
         if (a < b) {
             return -1;
         }
@@ -75,7 +87,7 @@ class QuickSort {
         else {
             return 1;
         }
-    }
+    };
     /**
      * Sorts the array using the QuickSort algorithm.
      *
@@ -85,14 +97,14 @@ class QuickSort {
      * const quickSort = new QuickSort([3, 4, 1]);
      * quickSort.sort(); // returns new array with [1, 3, 4]
      */
-    sort() {
+    QuickSort.prototype.sort = function () {
         if (this.size <= 1) {
             return this.values;
         }
-        let pivot = this.values[0];
-        let leftArr = [];
-        let rightArr = [];
-        for (let i = 1; i < this.size; i++) {
+        var pivot = this.values[0];
+        var leftArr = [];
+        var rightArr = [];
+        for (var i = 1; i < this.size; i++) {
             if (this.defaultComparator(this.values[i], pivot) < 0) {
                 leftArr.push(this.values[i]);
             }
@@ -100,8 +112,9 @@ class QuickSort {
                 rightArr.push(this.values[i]);
             }
         }
-        return [...(new QuickSort(leftArr)).sort(), pivot, ...(new QuickSort(rightArr)).sort()];
-    }
+        return __spreadArray(__spreadArray(__spreadArray([], (new QuickSort(leftArr)).sort(), true), [pivot], false), (new QuickSort(rightArr)).sort(), true);
+    };
     ;
-}
+    return QuickSort;
+}());
 exports.QuickSort = QuickSort;
