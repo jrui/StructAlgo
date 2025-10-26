@@ -121,7 +121,6 @@ var InsertionSort = /** @class */ (function () {
         }
         return sortedArray;
     };
-    ;
     return InsertionSort;
 }());
 exports.InsertionSort = InsertionSort;

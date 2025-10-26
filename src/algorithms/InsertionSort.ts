@@ -122,5 +122,5 @@ export class InsertionSort<T> {
         }
 
         return sortedArray;
-    };
+    }
 }
