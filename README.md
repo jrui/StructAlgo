@@ -26,13 +26,13 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] LRU Cache
   - [x] Queue
   - [x] AVL Tree
-  - [ ] Heap
-  - [ ] Trie
-  - [ ] Binary Search Tree
-  - [ ] Priority Queue
-  - [ ] Deque (Double-ended Queue)
-  - [ ] Bloom Filter
-  - [ ] Disjoint Set (Union-Find)
+  - [x] Heap
+  - [x] Trie
+  - [x] Binary Search Tree
+  - [x] Priority Queue
+  - [x] Deque (Double-ended Queue)
+  - [x] Bloom Filter
+  - [x] Disjoint Set (Union-Find)
 ### Algorithms
   - [x] Quick Sort
   - [x] Bubble Sort
@@ -43,10 +43,46 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Radix Sort
   - [x] Selection Sort
   - [x] Heap Sort
-  - [ ] Binary Search
-  - [ ] Breadth-First Search (BFS)
-  - [ ] Depth-First Search (DFS)
-  - [ ] Dijkstra's Algorithm
-  - [ ] A* Algorithm
-  - [ ] Kruskal's Algorithm
-  - [ ] Prim's Algorithm
+  - [x] Binary Search
+  - [x] Breadth-First Search (BFS)
+  - [x] Depth-First Search (DFS)
+  - [x] Dijkstra's Algorithm
+  - [x] A* Algorithm
+  - [x] Kruskal's Algorithm
+  - [x] Prim's Algorithm
+
+---
+## Future Work & Enhancements
+The following features and improvements are planned for future releases:
+
+### Additional Data Structures
+  - Red-Black Tree
+  - B-Tree and B+ Tree
+  - Suffix Tree and Suffix Array
+  - Segment Tree
+  - Fenwick Tree (Binary Indexed Tree)
+  - Skip List
+  - Fibonacci Heap
+  - Van Emde Boas Tree
+
+### Additional Algorithms
+  - Topological Sort
+  - Bellman-Ford Algorithm
+  - Floyd-Warshall Algorithm
+  - Tarjan's Algorithm (Strongly Connected Components)
+  - Kosaraju's Algorithm
+  - Ford-Fulkerson Algorithm (Max Flow)
+  - Knuth-Morris-Pratt (KMP) String Matching
+  - Rabin-Karp String Matching
+  - Boyer-Moore String Matching
+  - Convex Hull (Graham Scan, Jarvis March)
+  - Dynamic Programming classics (Knapsack, Longest Common Subsequence, etc.)
+
+### Improvements
+  - Performance benchmarks for all implementations
+  - More comprehensive test coverage
+  - Interactive visualizations for algorithms
+  - Better documentation with more examples
+  - Support for custom comparators in more data structures
+  - Iterator implementations for all data structures
+  - Immutable versions of data structures
