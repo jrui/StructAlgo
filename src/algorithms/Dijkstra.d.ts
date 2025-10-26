@@ -15,7 +15,7 @@
  *   'D': { 'B': 5, 'C': 8, 'E': 2 },
  *   'E': { 'C': 10, 'D': 2 }
  * };
- * Dijkstra.findShortestPath(graph, 'A', 'E'); // returns { path: ['A', 'C', 'B', 'D', 'E'], distance: 9 }
+ * Dijkstra.findShortestPath(graph, 'A', 'E'); // returns { path: ['A', 'C', 'B', 'D', 'E'], distance: 10 }
  */
 interface WeightedGraph {
     [key: string]: {

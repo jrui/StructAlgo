@@ -63,6 +63,9 @@ class Prim {
     }
     /**
      * Helper method to add edges from a vertex to the edge list
+     * Note: This implementation sorts the edges array on each iteration.
+     * For better performance with large graphs, consider using a proper
+     * priority queue data structure (e.g., binary heap).
      */
     static addEdges(graph, vertex, visited, edges) {
         const neighbors = graph[vertex] || {};

@@ -6,6 +6,10 @@ exports.Heap = void 0;
  * A heap is a specialized tree-based data structure that satisfies the heap property:
  * In a min heap, for any given node I, the value of I is less than or equal to the values of its children.
  *
+ * Note: This class shares similar implementation with PriorityQueue. The separation is intentional
+ * to provide distinct abstractions - Heap focuses on the data structure itself, while PriorityQueue
+ * provides a queue-like interface.
+ *
  * @example
  * const heap = new Heap();
  * heap.insert(5);
