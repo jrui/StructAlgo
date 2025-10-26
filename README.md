@@ -25,7 +25,7 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Graph
   - [x] LRU Cache
   - [x] Queue
-  - [ ] AVL Tree
+  - [x] AVL Tree
   - [ ] Heap
   - [ ] Trie
   - [ ] Binary Search Tree

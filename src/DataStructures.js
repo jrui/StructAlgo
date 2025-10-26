@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Graph = exports.TreeSet = exports.Stack = exports.RingBuffer = exports.Queue = exports.LRUCache = exports.LinkedList = exports.HashSet = void 0;
+exports.Graph = exports.TreeSet = exports.Stack = exports.RingBuffer = exports.Queue = exports.LRUCache = exports.LinkedList = exports.HashSet = exports.AVLTree = void 0;
+var AVLTree_1 = require("./datastructures/AVLTree");
+Object.defineProperty(exports, "AVLTree", { enumerable: true, get: function () { return AVLTree_1.AVLTree; } });
 var HashSet_1 = require("./datastructures/HashSet");
 Object.defineProperty(exports, "HashSet", { enumerable: true, get: function () { return HashSet_1.HashSet; } });
 var LinkedList_1 = require("./datastructures/LinkedList");
