@@ -1,3 +1,4 @@
+export { AVLTree } from './datastructures/AVLTree';
 export { HashSet } from './datastructures/HashSet';
 export { LinkedList } from './datastructures/LinkedList';
 export { LRUCache } from './datastructures/LRUCache';
