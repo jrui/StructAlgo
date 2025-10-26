@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RadixSort = exports.MergeSort = exports.InsertionSort = exports.CountingSort = exports.BucketSort = exports.BubbleSort = exports.QuickSort = void 0;
+exports.SelectionSort = exports.HeapSort = exports.RadixSort = exports.MergeSort = exports.InsertionSort = exports.CountingSort = exports.BucketSort = exports.BubbleSort = exports.QuickSort = void 0;
 var QuickSort_1 = require("./algorithms/QuickSort");
 Object.defineProperty(exports, "QuickSort", { enumerable: true, get: function () { return QuickSort_1.QuickSort; } });
 var BubbleSort_1 = require("./algorithms/BubbleSort");
@@ -15,3 +15,7 @@ var MergeSort_1 = require("./algorithms/MergeSort");
 Object.defineProperty(exports, "MergeSort", { enumerable: true, get: function () { return MergeSort_1.MergeSort; } });
 var RadixSort_1 = require("./algorithms/RadixSort");
 Object.defineProperty(exports, "RadixSort", { enumerable: true, get: function () { return RadixSort_1.RadixSort; } });
+var HeapSort_1 = require("./algorithms/HeapSort");
+Object.defineProperty(exports, "HeapSort", { enumerable: true, get: function () { return HeapSort_1.HeapSort; } });
+var SelectionSort_1 = require("./algorithms/SelectionSort");
+Object.defineProperty(exports, "SelectionSort", { enumerable: true, get: function () { return SelectionSort_1.SelectionSort; } });
