@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CountingSort = exports.BucketSort = exports.BubbleSort = exports.QuickSort = void 0;
+exports.InsertionSort = exports.CountingSort = exports.BucketSort = exports.BubbleSort = exports.QuickSort = void 0;
 var QuickSort_1 = require("./algorithms/QuickSort");
 Object.defineProperty(exports, "QuickSort", { enumerable: true, get: function () { return QuickSort_1.QuickSort; } });
 var BubbleSort_1 = require("./algorithms/BubbleSort");
@@ -9,3 +9,5 @@ var BucketSort_1 = require("./algorithms/BucketSort");
 Object.defineProperty(exports, "BucketSort", { enumerable: true, get: function () { return BucketSort_1.BucketSort; } });
 var CountingSort_1 = require("./algorithms/CountingSort");
 Object.defineProperty(exports, "CountingSort", { enumerable: true, get: function () { return CountingSort_1.CountingSort; } });
+var InsertionSort_1 = require("./algorithms/InsertionSort");
+Object.defineProperty(exports, "InsertionSort", { enumerable: true, get: function () { return InsertionSort_1.InsertionSort; } });
