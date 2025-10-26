@@ -198,19 +198,19 @@ var AVLTree = /** @class */ (function () {
         }
         else {
             // Node to be deleted found
-            this.nodeCount--;
             // Node with only one child or no child
             if (!node.left) {
+                this.nodeCount--;
                 return node.right;
             }
             else if (!node.right) {
+                this.nodeCount--;
                 return node.left;
             }
             // Node with two children: get the inorder successor (smallest in the right subtree)
             var successor = this.findMin(node.right);
             node.value = successor.value;
             node.right = this.deleteNode(node.right, successor.value);
-            this.nodeCount++; // Adjust count since we didn't actually delete a node, just replaced value
         }
         // Balance the node
         return this.balance(node);

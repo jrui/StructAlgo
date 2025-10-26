@@ -17,8 +17,8 @@ export declare class TreeSet<T> {
     last(): any;
     first(): any;
     isEmpty(): boolean;
-    pullLast(): any[];
-    pullFirst(): any[];
+    pullLast(): any[] | null;
+    pullFirst(): any[] | null;
     add(element: T): void;
     /**
      * Performs a binary search of value in array

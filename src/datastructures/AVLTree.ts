@@ -217,12 +217,13 @@ export class AVLTree<T> {
             node.right = this.deleteNode(node.right, value);
         } else {
             // Node to be deleted found
-            this.nodeCount--;
 
             // Node with only one child or no child
             if (!node.left) {
+                this.nodeCount--;
                 return node.right;
             } else if (!node.right) {
+                this.nodeCount--;
                 return node.left;
             }
 
@@ -230,7 +231,6 @@ export class AVLTree<T> {
             const successor = this.findMin(node.right);
             node.value = successor.value;
             node.right = this.deleteNode(node.right, successor.value);
-            this.nodeCount++; // Adjust count since we didn't actually delete a node, just replaced value
         }
 
         // Balance the node
