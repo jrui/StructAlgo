@@ -23,17 +23,30 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Stack
   - [x] Tree Set
   - [x] Graph
-  - [ ] AVL Tree
-  - [ ] Heap
   - [x] LRU Cache
   - [x] Queue
+  - [ ] AVL Tree
+  - [ ] Heap
   - [ ] Trie
+  - [ ] Binary Search Tree
+  - [ ] Priority Queue
+  - [ ] Deque (Double-ended Queue)
+  - [ ] Bloom Filter
+  - [ ] Disjoint Set (Union-Find)
 ### Algorithms
   - [x] Quick Sort
   - [x] Bubble Sort
   - [x] Bucket Sort
   - [x] Counting Sort
-  - [ ] Insertion Sort
-  - [ ] Merge Sort
+  - [x] Insertion Sort
+  - [x] Merge Sort
   - [ ] Radix Sort
   - [ ] Selection Sort
+  - [ ] Heap Sort
+  - [ ] Binary Search
+  - [ ] Breadth-First Search (BFS)
+  - [ ] Depth-First Search (DFS)
+  - [ ] Dijkstra's Algorithm
+  - [ ] A* Algorithm
+  - [ ] Kruskal's Algorithm
+  - [ ] Prim's Algorithm
