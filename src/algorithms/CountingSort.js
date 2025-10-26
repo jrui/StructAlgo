@@ -1,13 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CountingSort = void 0;
 /**
@@ -35,10 +26,9 @@ exports.CountingSort = void 0;
  * const countingSort = new CountingSort([5, 3, 8, 6, 2, 7, 1, 4]);
  * countingSort.sort(); // returns new array with [1, 2, 3, 4, 5, 6, 7, 8]
  */
-var CountingSort = /** @class */ (function () {
-    function CountingSort(array) {
-        if (array === void 0) { array = []; }
-        this.values = __spreadArray([], array, true);
+class CountingSort {
+    constructor(array = []) {
+        this.values = [...array];
         this.size = array.length;
     }
     /**
@@ -48,14 +38,14 @@ var CountingSort = /** @class */ (function () {
      * @param array - the array of integers to be sorted
      * @returns a new array with the elements sorted
      */
-    CountingSort.sort = function (array) {
+    static sort(array) {
         if (array.length <= 1) {
-            return __spreadArray([], array, true);
+            return [...array];
         }
         // Find minimum and maximum values
-        var min = array[0];
-        var max = array[0];
-        for (var i = 1; i < array.length; i++) {
+        let min = array[0];
+        let max = array[0];
+        for (let i = 1; i < array.length; i++) {
             if (array[i] < min) {
                 min = array[i];
             }
@@ -64,21 +54,21 @@ var CountingSort = /** @class */ (function () {
             }
         }
         // Create count array
-        var range = max - min + 1;
-        var count = new Array(range).fill(0);
+        const range = max - min + 1;
+        const count = new Array(range).fill(0);
         // Count occurrences of each element
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             count[array[i] - min]++;
         }
         // Build the sorted array
-        var sortedArray = [];
-        for (var i = 0; i < range; i++) {
-            for (var j = 0; j < count[i]; j++) {
+        const sortedArray = [];
+        for (let i = 0; i < range; i++) {
+            for (let j = 0; j < count[i]; j++) {
                 sortedArray.push(i + min);
             }
         }
         return sortedArray;
-    };
+    }
     /**
      * Sorts the array using the CountingSort algorithm.
      *
@@ -88,14 +78,14 @@ var CountingSort = /** @class */ (function () {
      * const countingSort = new CountingSort([4, 2, 2, 8, 3, 3, 1]);
      * countingSort.sort(); // returns new array with [1, 2, 2, 3, 3, 4, 8]
      */
-    CountingSort.prototype.sort = function () {
+    sort() {
         if (this.size <= 1) {
-            return __spreadArray([], this.values, true);
+            return [...this.values];
         }
         // Find minimum and maximum values
-        var min = this.values[0];
-        var max = this.values[0];
-        for (var i = 1; i < this.size; i++) {
+        let min = this.values[0];
+        let max = this.values[0];
+        for (let i = 1; i < this.size; i++) {
             if (this.values[i] < min) {
                 min = this.values[i];
             }
@@ -104,22 +94,21 @@ var CountingSort = /** @class */ (function () {
             }
         }
         // Create count array
-        var range = max - min + 1;
-        var count = new Array(range).fill(0);
+        const range = max - min + 1;
+        const count = new Array(range).fill(0);
         // Count occurrences of each element
-        for (var i = 0; i < this.size; i++) {
+        for (let i = 0; i < this.size; i++) {
             count[this.values[i] - min]++;
         }
         // Build the sorted array
-        var sortedArray = [];
-        for (var i = 0; i < range; i++) {
-            for (var j = 0; j < count[i]; j++) {
+        const sortedArray = [];
+        for (let i = 0; i < range; i++) {
+            for (let j = 0; j < count[i]; j++) {
                 sortedArray.push(i + min);
             }
         }
         return sortedArray;
-    };
+    }
     ;
-    return CountingSort;
-}());
+}
 exports.CountingSort = CountingSort;

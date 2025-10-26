@@ -40,9 +40,9 @@ Feel free to add on to it, open PRs, and use it in your projects.
   - [x] Counting Sort
   - [x] Insertion Sort
   - [x] Merge Sort
-  - [ ] Radix Sort
-  - [ ] Selection Sort
-  - [ ] Heap Sort
+  - [x] Radix Sort
+  - [x] Selection Sort
+  - [x] Heap Sort
   - [ ] Binary Search
   - [ ] Breadth-First Search (BFS)
   - [ ] Depth-First Search (DFS)

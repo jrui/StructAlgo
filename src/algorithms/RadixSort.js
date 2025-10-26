@@ -1,13 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RadixSort = void 0;
 /**
@@ -37,10 +28,9 @@ exports.RadixSort = void 0;
  * const radixSort = new RadixSort([5, 3, 8, 6, 2, 7, 1, 4]);
  * radixSort.sort(); // returns new array with [1, 2, 3, 4, 5, 6, 7, 8]
  */
-var RadixSort = /** @class */ (function () {
-    function RadixSort(array) {
-        if (array === void 0) { array = []; }
-        this.values = __spreadArray([], array, true);
+class RadixSort {
+    constructor(array = []) {
+        this.values = [...array];
         this.size = array.length;
     }
     /**
@@ -50,33 +40,33 @@ var RadixSort = /** @class */ (function () {
      * @param digitPos - the position of the digit (0 = rightmost)
      * @returns the digit at the specified position
      */
-    RadixSort.getDigit = function (num, digitPos) {
+    static getDigit(num, digitPos) {
         return Math.floor(Math.abs(num) / Math.pow(10, digitPos)) % 10;
-    };
+    }
     /**
      * Count the number of digits in a number
      *
      * @param num - the number to count digits of
      * @returns the number of digits
      */
-    RadixSort.digitCount = function (num) {
+    static digitCount(num) {
         if (num === 0)
             return 1;
         return String(Math.abs(Math.floor(num))).length;
-    };
+    }
     /**
      * Find the maximum number of digits in an array
      *
      * @param array - the array to find the max digits in
      * @returns the maximum number of digits
      */
-    RadixSort.mostDigits = function (array) {
-        var maxDigits = 0;
-        for (var i = 0; i < array.length; i++) {
+    static mostDigits(array) {
+        let maxDigits = 0;
+        for (let i = 0; i < array.length; i++) {
             maxDigits = Math.max(maxDigits, this.digitCount(array[i]));
         }
         return maxDigits;
-    };
+    }
     /**
      * Perform counting sort on an array based on a specific digit position
      *
@@ -84,30 +74,30 @@ var RadixSort = /** @class */ (function () {
      * @param digitPos - the digit position to sort by
      * @returns the sorted array for this digit position
      */
-    RadixSort.countingSortByDigit = function (array, digitPos) {
-        var output = new Array(array.length);
-        var count = new Array(10);
+    static countingSortByDigit(array, digitPos) {
+        const output = new Array(array.length);
+        const count = new Array(10);
         // Initialize count array
-        for (var i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             count[i] = 0;
         }
         // Count occurrences of each digit
-        for (var i = 0; i < array.length; i++) {
-            var digit = this.getDigit(array[i], digitPos);
+        for (let i = 0; i < array.length; i++) {
+            const digit = this.getDigit(array[i], digitPos);
             count[digit]++;
         }
         // Calculate cumulative count
-        for (var i = 1; i < 10; i++) {
+        for (let i = 1; i < 10; i++) {
             count[i] += count[i - 1];
         }
         // Build the output array (traverse from right to maintain stability)
-        for (var i = array.length - 1; i >= 0; i--) {
-            var digit = this.getDigit(array[i], digitPos);
+        for (let i = array.length - 1; i >= 0; i--) {
+            const digit = this.getDigit(array[i], digitPos);
             output[count[digit] - 1] = array[i];
             count[digit]--;
         }
         return output;
-    };
+    }
     /**
      * Sorts the array using the RadixSort algorithm.
      * Static method, no need to instantiate class
@@ -115,14 +105,14 @@ var RadixSort = /** @class */ (function () {
      * @param array - the array of integers to be sorted
      * @returns a new array with the elements sorted
      */
-    RadixSort.sort = function (array) {
+    static sort(array) {
         if (array.length <= 1) {
-            return __spreadArray([], array, true);
+            return [...array];
         }
         // Separate positive and negative numbers
-        var negatives = [];
-        var positives = [];
-        for (var i = 0; i < array.length; i++) {
+        const negatives = [];
+        const positives = [];
+        for (let i = 0; i < array.length; i++) {
             if (array[i] < 0) {
                 negatives.push(array[i]);
             }
@@ -131,30 +121,30 @@ var RadixSort = /** @class */ (function () {
             }
         }
         // Sort positive numbers
-        var sortedPositives = positives;
+        let sortedPositives = positives;
         if (positives.length > 0) {
-            var maxDigits = this.mostDigits(positives);
-            for (var k = 0; k < maxDigits; k++) {
+            const maxDigits = this.mostDigits(positives);
+            for (let k = 0; k < maxDigits; k++) {
                 sortedPositives = this.countingSortByDigit(sortedPositives, k);
             }
         }
         // Sort negative numbers (sort absolute values, then reverse)
-        var sortedNegatives = negatives;
+        let sortedNegatives = negatives;
         if (negatives.length > 0) {
             // Convert to absolute values
-            var absNegatives = negatives.map(function (num) { return Math.abs(num); });
-            var maxDigits = this.mostDigits(absNegatives);
+            const absNegatives = negatives.map(num => Math.abs(num));
+            const maxDigits = this.mostDigits(absNegatives);
             // Sort absolute values
-            var sorted = absNegatives;
-            for (var k = 0; k < maxDigits; k++) {
+            let sorted = absNegatives;
+            for (let k = 0; k < maxDigits; k++) {
                 sorted = this.countingSortByDigit(sorted, k);
             }
             // Convert back to negative and reverse
-            sortedNegatives = sorted.map(function (num) { return -num; }).reverse();
+            sortedNegatives = sorted.map(num => -num).reverse();
         }
         // Combine sorted negatives and positives
-        return __spreadArray(__spreadArray([], sortedNegatives, true), sortedPositives, true);
-    };
+        return [...sortedNegatives, ...sortedPositives];
+    }
     /**
      * Sorts the array using the RadixSort algorithm.
      *
@@ -164,14 +154,14 @@ var RadixSort = /** @class */ (function () {
      * const radixSort = new RadixSort([170, 45, 75, 90, 802, 24, 2, 66]);
      * radixSort.sort(); // returns new array with [2, 24, 45, 66, 75, 90, 170, 802]
      */
-    RadixSort.prototype.sort = function () {
+    sort() {
         if (this.size <= 1) {
-            return __spreadArray([], this.values, true);
+            return [...this.values];
         }
         // Separate positive and negative numbers
-        var negatives = [];
-        var positives = [];
-        for (var i = 0; i < this.size; i++) {
+        const negatives = [];
+        const positives = [];
+        for (let i = 0; i < this.size; i++) {
             if (this.values[i] < 0) {
                 negatives.push(this.values[i]);
             }
@@ -180,30 +170,29 @@ var RadixSort = /** @class */ (function () {
             }
         }
         // Sort positive numbers
-        var sortedPositives = positives;
+        let sortedPositives = positives;
         if (positives.length > 0) {
-            var maxDigits = RadixSort.mostDigits(positives);
-            for (var k = 0; k < maxDigits; k++) {
+            const maxDigits = RadixSort.mostDigits(positives);
+            for (let k = 0; k < maxDigits; k++) {
                 sortedPositives = RadixSort.countingSortByDigit(sortedPositives, k);
             }
         }
         // Sort negative numbers (sort absolute values, then reverse)
-        var sortedNegatives = negatives;
+        let sortedNegatives = negatives;
         if (negatives.length > 0) {
             // Convert to absolute values
-            var absNegatives = negatives.map(function (num) { return Math.abs(num); });
-            var maxDigits = RadixSort.mostDigits(absNegatives);
+            const absNegatives = negatives.map(num => Math.abs(num));
+            const maxDigits = RadixSort.mostDigits(absNegatives);
             // Sort absolute values
-            var sorted = absNegatives;
-            for (var k = 0; k < maxDigits; k++) {
+            let sorted = absNegatives;
+            for (let k = 0; k < maxDigits; k++) {
                 sorted = RadixSort.countingSortByDigit(sorted, k);
             }
             // Convert back to negative and reverse
-            sortedNegatives = sorted.map(function (num) { return -num; }).reverse();
+            sortedNegatives = sorted.map(num => -num).reverse();
         }
         // Combine sorted negatives and positives
-        return __spreadArray(__spreadArray([], sortedNegatives, true), sortedPositives, true);
-    };
-    return RadixSort;
-}());
+        return [...sortedNegatives, ...sortedPositives];
+    }
+}
 exports.RadixSort = RadixSort;
