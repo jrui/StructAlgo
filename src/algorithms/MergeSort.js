@@ -1,13 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MergeSort = void 0;
 /**
@@ -38,11 +29,9 @@ exports.MergeSort = void 0;
  * );
  * mergeSort.sort(); // returns new array with ['alex', 'alice', 'bob', 'charlie', 'gavin']
  */
-var MergeSort = /** @class */ (function () {
-    function MergeSort(array, comparatorFn) {
-        if (array === void 0) { array = []; }
-        if (comparatorFn === void 0) { comparatorFn = MergeSort.defaultComparator; }
-        this.values = __spreadArray([], array, true);
+class MergeSort {
+    constructor(array = [], comparatorFn = MergeSort.defaultComparator) {
+        this.values = [...array];
         this.size = array.length;
         this.defaultComparator = comparatorFn;
     }
@@ -55,10 +44,10 @@ var MergeSort = /** @class */ (function () {
      * @param comparatorFn - the comparator function used for sorting
      * @returns a new array with elements from both arrays sorted
      */
-    MergeSort.merge = function (left, right, comparatorFn) {
-        var result = [];
-        var leftIndex = 0;
-        var rightIndex = 0;
+    static merge(left, right, comparatorFn) {
+        const result = [];
+        let leftIndex = 0;
+        let rightIndex = 0;
         // Compare elements from left and right arrays and add the smaller one to result
         while (leftIndex < left.length && rightIndex < right.length) {
             if (comparatorFn(left[leftIndex], right[rightIndex]) <= 0) {
@@ -81,7 +70,7 @@ var MergeSort = /** @class */ (function () {
             rightIndex++;
         }
         return result;
-    };
+    }
     /**
      * Sorts the array using the MergeSort algorithm.
      * Static method, no need to instantiate class
@@ -90,19 +79,18 @@ var MergeSort = /** @class */ (function () {
      * @param comparatorFn - the comparator function used for sorting, defaults to numerical comparison
      * @returns a new array with the elements sorted
      */
-    MergeSort.sort = function (array, comparatorFn) {
-        if (comparatorFn === void 0) { comparatorFn = this.defaultComparator; }
+    static sort(array, comparatorFn = this.defaultComparator) {
         // Base case: arrays with 0 or 1 element are already sorted
         if (array.length <= 1) {
             return array;
         }
         // Divide the array into two halves
-        var middle = Math.floor(array.length / 2);
-        var left = array.slice(0, middle);
-        var right = array.slice(middle);
+        const middle = Math.floor(array.length / 2);
+        const left = array.slice(0, middle);
+        const right = array.slice(middle);
         // Recursively sort both halves and merge them
         return MergeSort.merge(MergeSort.sort(left, comparatorFn), MergeSort.sort(right, comparatorFn), comparatorFn);
-    };
+    }
     /**
      * Default comparator function used for sorting
      *
@@ -110,7 +98,7 @@ var MergeSort = /** @class */ (function () {
      * @param b - second element to compare
      * @returns a negative number if a < b, 0 if a = b, a positive number if a > b
      */
-    MergeSort.defaultComparator = function (a, b) {
+    static defaultComparator(a, b) {
         if (a < b) {
             return -1;
         }
@@ -120,7 +108,7 @@ var MergeSort = /** @class */ (function () {
         else {
             return 1;
         }
-    };
+    }
     /**
      * Instance helper method to merge two sorted arrays.
      *
@@ -128,10 +116,10 @@ var MergeSort = /** @class */ (function () {
      * @param right - the right sorted array
      * @returns a new array with elements from both arrays sorted
      */
-    MergeSort.prototype.merge = function (left, right) {
-        var result = [];
-        var leftIndex = 0;
-        var rightIndex = 0;
+    merge(left, right) {
+        const result = [];
+        let leftIndex = 0;
+        let rightIndex = 0;
         while (leftIndex < left.length && rightIndex < right.length) {
             if (this.defaultComparator(left[leftIndex], right[rightIndex]) <= 0) {
                 result.push(left[leftIndex]);
@@ -151,7 +139,7 @@ var MergeSort = /** @class */ (function () {
             rightIndex++;
         }
         return result;
-    };
+    }
     /**
      * Sorts the array using the MergeSort algorithm.
      *
@@ -161,15 +149,14 @@ var MergeSort = /** @class */ (function () {
      * const mergeSort = new MergeSort([3, 4, 1]);
      * mergeSort.sort(); // returns new array with [1, 3, 4]
      */
-    MergeSort.prototype.sort = function () {
+    sort() {
         if (this.size <= 1) {
             return this.values;
         }
-        var middle = Math.floor(this.size / 2);
-        var left = this.values.slice(0, middle);
-        var right = this.values.slice(middle);
+        const middle = Math.floor(this.size / 2);
+        const left = this.values.slice(0, middle);
+        const right = this.values.slice(middle);
         return this.merge((new MergeSort(left, this.defaultComparator)).sort(), (new MergeSort(right, this.defaultComparator)).sort());
-    };
-    return MergeSort;
-}());
+    }
+}
 exports.MergeSort = MergeSort;
