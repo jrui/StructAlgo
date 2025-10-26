@@ -121,25 +121,7 @@ class HeapSort {
      * @param rootIndex - index of the root of the subtree
      */
     heapify(array, heapSize, rootIndex) {
-        let largest = rootIndex;
-        const leftChild = 2 * rootIndex + 1;
-        const rightChild = 2 * rootIndex + 2;
-        // If left child is larger than root
-        if (leftChild < heapSize && this.defaultComparator(array[leftChild], array[largest]) > 0) {
-            largest = leftChild;
-        }
-        // If right child is larger than largest so far
-        if (rightChild < heapSize && this.defaultComparator(array[rightChild], array[largest]) > 0) {
-            largest = rightChild;
-        }
-        // If largest is not root
-        if (largest !== rootIndex) {
-            const temp = array[rootIndex];
-            array[rootIndex] = array[largest];
-            array[largest] = temp;
-            // Recursively heapify the affected subtree
-            this.heapify(array, heapSize, largest);
-        }
+        HeapSort.heapify(array, heapSize, rootIndex, this.defaultComparator);
     }
     /**
      * Sorts the array using the HeapSort algorithm.
